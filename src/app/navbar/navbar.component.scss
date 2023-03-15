@@ -1,0 +1,37 @@
+ * {
+   font-size: 18px;
+ }
+
+ .toolbar {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   height: 60px;
+   display: flex;
+   align-items: center;
+   background-color: transparent;
+   color: gray;
+   font-weight: 600;
+ }
+
+ .spacer {
+   flex: 1;
+ }
+
+ img {
+   margin-left: 40px;
+ }
+
+ span {
+   cursor: default;
+ }
+
+ a {
+   margin-right: 40px;
+   cursor: pointer;
+ }
+
+ a:hover {
+   color: blue;
+ }
