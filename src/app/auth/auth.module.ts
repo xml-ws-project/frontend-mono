@@ -5,6 +5,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 
+
+
 @NgModule({
   declarations: [
     LoginPageComponent,
@@ -16,4 +18,4 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ]
 })
-export class LoginModule { }
+export class AuthModule { }
