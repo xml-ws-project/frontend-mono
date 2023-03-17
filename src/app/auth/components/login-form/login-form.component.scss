@@ -1,0 +1,260 @@
+@import url("../../../../colors.scss");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  //background: linear-gradient(#141e30, #243b55);
+}
+
+h2 {
+  cursor: default;
+}
+
+.login-box {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  width: 500px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: var(--second);
+  //background: rgba(0, 0, 0, .5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 25px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: var(--pure-white);
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid var(--pure-white);
+  outline: none;
+  background: transparent;
+  z-index: 100;
+  cursor: pointer;
+}
+
+//changed color of autofill
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+.login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px 0;
+  font-size: 18px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
+  top: -20px;
+  left: 0;
+  color: var(--blue);
+  font-size: 15px;
+}
+
+.submit {
+  margin-top: 50px;
+  width: 100%;
+  height: 35px;
+  text-transform: uppercase;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.options {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.forgot {
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.forgot:hover {
+  color: var(--blue);
+}
+
+svg#clouds {
+  position: fixed;
+  bottom: -140px;
+  left: -150px;
+  z-index: -10;
+  width: 1920px;
+}
+
+.error-message {
+  color: var(--error);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.input-error {
+  position: relative;
+  bottom: 2vmin;
+  color: var(--error);
+  font-size: 15px;
+  margin-top: 0;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: var(--blue) !important;
+}
+
+//taken from https://frontendresource.com/css-button-templates/
+$bg: var(--second);
+$white: var(--pure-white);
+$black: var(--second);
+
+@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65, 0, .076, 1)) {
+  transition: $property $duration $ease;
+}
+
+* {
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+.learn-more {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  width: 10em;
+  top: 4vmin;
+  left: 4vmin;
+
+  .circle {
+    @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: $black;
+    border-radius: 1.625rem;
+
+    .icon {
+      @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      background: $white;
+
+      &.arrow {
+        @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+        left: 0.625rem;
+        width: 1.125rem;
+        height: 0.125rem;
+        background: none;
+
+        &::before {
+          position: absolute;
+          content: '';
+          top: -0.25rem;
+          right: 0.0625rem;
+          width: 0.625rem;
+          height: 0.625rem;
+          border-top: 0.125rem solid #fff;
+          border-right: 0.125rem solid #fff;
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  .button-text {
+    @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+    position: absolute;
+    top: 0;
+    left: 4vmin;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: $black;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: left;
+    text-transform: uppercase;
+  }
+}
+
+.learn-more:hover {
+  .circle {
+    width: 100%;
+
+    .icon {
+      &.arrow {
+        background: $white;
+        transform: translate(1rem, 0);
+      }
+    }
+  }
+
+  .button-text {
+    color: $white;
+  }
+}
+
+@supports (display: grid) {
+  body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.625rem;
+    grid-template-areas: ". main main ."". main main .";
+  }
+
+  #container {
+    grid-area: main;
+    align-self: center;
+    justify-self: center;
+    position: fixed;
+    top: 3rem;
+    left: 5rem;
+  }
+}
