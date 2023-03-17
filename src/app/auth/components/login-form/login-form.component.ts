@@ -11,13 +11,19 @@ import { AuthService } from '../../services/auth.service'
 })
 export class LoginFormComponent {
   public defaultRemember = true
-  public isLogging = false
+  public isLogging: boolean = false
+  public showError: boolean = false
+  public errorMessage: string = ''
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private toastr: ToastrService,
   ) {}
+
+  onHome() {
+    this.router.navigate([''])
+  }
 
   onSubmit(form: NgForm) {
     this.isLogging = true
@@ -28,8 +34,9 @@ export class LoginFormComponent {
         this.isLogging = false
       },
       (errorMessage) => {
-        this.toastr.error(errorMessage)
         this.isLogging = false
+        this.showError = true
+        this.errorMessage = errorMessage
       },
     )
   }

@@ -1,20 +1,18 @@
 <app-loader *ngIf="isLogging"></app-loader>
+<button (click)="onHome()" class="learn-more">
+  <span class="circle" aria-hidden="true">
+    <span class="icon arrow"></span>
+  </span>
+  <span class="button-text">Home</span>
+</button>
 <div class="login-box">
   <h2>Login</h2>
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <div class="user-box">
-      <input
-        id="email"
-        name="email"
-        type="email"
-        #email="ngModel"
-        matInput
-        required
-        ngModel
-        email
-      />
+      <input id="email" name="email" type="text" #email="ngModel" matInput required ngModel email />
       <label>Email</label>
     </div>
+    <div *ngIf="!email.valid && email.touched" class="input-error">Please enter valid email.</div>
     <div class="user-box">
       <input
         id="pass"
@@ -26,13 +24,17 @@
         ngModel
       />
       <label>Password</label>
+      <div *ngIf="!password.valid && password.touched" class="input-error">
+        Password is required.
+      </div>
     </div>
+    <div *ngIf="showError" class="error-message">{{ errorMessage }}</div>
     <div class="options">
       <mat-checkbox [(ngModel)]="defaultRemember" name="rememberMe">Remember me</mat-checkbox>
       <span class="spacer"></span>
       <a class="forgot">Forgot password?</a>
     </div>
-    <button class="submit">Submit</button>
+    <button class="submit" type="submit" [disabled]="!form.valid">Submit</button>
   </form>
 </div>
 <svg

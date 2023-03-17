@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { LoaderComponent } from './loader/loader.component'
+import { LoaderComponent } from './loader-component/loader.component'
 import {
   NgxUiLoaderConfig,
   NgxUiLoaderHttpModule,

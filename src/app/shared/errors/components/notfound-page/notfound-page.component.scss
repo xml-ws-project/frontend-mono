@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap")(rel="stylesheet");
+@import url('../../../../../colors.scss');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background-color: var(--pure-white);
+}
+
+.container {
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  left: 15vmin;
+  text-align: center;
+}
+
+.cog-wheel1,
+.cog-wheel2 {
+  transform: scale(0.7);
+}
+
+.cog1,
+.cog2 {
+  width: 40vmin;
+  height: 40vmin;
+  border-radius: 50%;
+  border: 6vmin solid #f3c623;
+  position: relative;
+}
+
+
+.cog2 {
+  border: 6vmin solid var(--main);
+}
+
+.top,
+.down,
+.left,
+.right,
+.left-top,
+.left-down,
+.right-top,
+.right-down {
+  width: 10vmin;
+  height: 10vmin;
+  background-color: #f3c623;
+  position: absolute;
+}
+
+.cog2 .top,
+.cog2 .down,
+.cog2 .left,
+.cog2 .right,
+.cog2 .left-top,
+.cog2 .left-down,
+.cog2 .right-top,
+.cog2 .right-down {
+  background-color: var(--main);
+}
+
+.top {
+  top: -14vmin;
+  left: 9vmin;
+}
+
+.down {
+  bottom: -14vmin;
+  left: 9vmin;
+}
+
+.left {
+  left: -14vmin;
+  top: 9vmin;
+}
+
+.right {
+  right: -14vmin;
+  top: 9vmin;
+}
+
+.left-top {
+  transform: rotateZ(-45deg);
+  left: -8vmin;
+  top: -8vmin;
+}
+
+.left-down {
+  transform: rotateZ(45deg);
+  left: -8vmin;
+  top: 25vmin;
+}
+
+.right-top {
+  transform: rotateZ(45deg);
+  right: -8vmin;
+  top: -8vmin;
+}
+
+.right-down {
+  transform: rotateZ(-45deg);
+  right: -8vmin;
+  top: 25vmin;
+}
+
+.cog2 {
+  position: relative;
+  left: -10.2vmin;
+  bottom: 10vmin;
+}
+
+h1 {
+  color: #142833;
+  cursor: default;
+}
+
+
+.first-four {
+  position: relative;
+  left: 6vmin;
+  font-size: 40vmin;
+}
+
+.second-four {
+  position: relative;
+  right: 18vmin;
+  z-index: -1;
+  font-size: 40vmin;
+}
+
+.wrong-para {
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  bottom: 15vmin;
+  padding: 3vmin 12vmin 3vmin 3vmin;
+  font-weight: 600;
+  color: #092532;
+  cursor: default;
+}
+
+//BUTTON - TAKEN FROM: https://codepen.io/chancesq/pen/PoZGZmR
+.noselect {
+  position: absolute;
+  bottom: 8vmin;
+  left: 75vmin;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  text-transform: uppercase;
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+button,
+button span {
+  transition: 250ms;
+}
+
+button .text {
+  transform: translateX(20px);
+  color: var(--main);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+button .icon {
+  position: absolute;
+  border: 1px solid var(--main);
+  transform: translateX(120px);
+  height: 50px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  border-radius: 0px 5px 5px 0px;
+
+}
+
+button svg {
+  width: 100px;
+}
+
+
+button:hover {
+  background: var(--main);
+}
+
+button:hover .text {
+  color: transparent;
+}
+
+button:hover .icon {
+  width: 150px;
+  border-left: none;
+  transform: translateX(25px);
+}
+
+button:focus {
+  outline: none;
+}

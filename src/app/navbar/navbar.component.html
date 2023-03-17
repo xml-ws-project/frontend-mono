@@ -1,4 +1,4 @@
-<!-- <div class="toolbar">
+<div class="toolbar">
   <img
     width="40"
     alt="Angular Logo"
@@ -6,6 +6,7 @@
   />
   <span>VIMA Airlines</span>
   <div class="spacer"></div>
-  <a title="Register" (click)="onRegister()">Register</a>
-  <a title="Login" (click)="onLogin()">Login</a>
-</div> -->
+  <a title="Register" *ngIf="!isLogged" (click)="onRegister()">Register</a>
+  <a title="Login" *ngIf="!isLogged" (click)="onLogin()">Login</a>
+  <a title="Login" *ngIf="isLogged" (click)="onLogout()">Logout</a>
+</div>
