@@ -1,0 +1,26 @@
+<div class="search-field">
+  <p-card header="Fly with us" class="card">
+    <div>
+      <label for="icon">TakeOff</label>
+      <p-calendar [showIcon]="true" inputId="icon"></p-calendar>
+    </div>
+    <div>
+      <label for="icon">Landing</label>
+      <p-calendar [showIcon]="true" inputId="icon"></p-calendar>
+    </div>
+    <div class="p-float-label">
+      <input id="float-input" type="text" pInputText>
+      <label for="float-input">Departure place</label>
+    </div>
+    <div class="p-float-label">
+      <input id="float-input" type="text" pInputText>
+      <label for="float-input">Landing place</label>
+    </div>
+    <div>
+      <label for="float-input">Number of cards</label>
+      <p-inputNumber mode="decimal" [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal"
+      decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
+    </div>
+  </p-card>
+
+</div>

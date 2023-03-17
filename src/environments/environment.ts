@@ -7,7 +7,8 @@ export const environment = {
   baseURL: "https://localhost:44352",
   authURL: "https://localhost:44352/Auth",
   loginURL: "https://localhost:44352/Auth/login",
-  registerURL: "https://localhost:44352/Auth/register"
+  registerURL: "https://localhost:44352/Auth/register",
+  flightsURL: "https://localhost:44352/Flight"
 };
 
 /*

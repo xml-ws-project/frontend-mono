@@ -1,3 +1,4 @@
+import { LandingPageModule } from './landing-page/landing-page.module';
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { AppRoutingModule } from './app-routing.module'
@@ -26,6 +27,7 @@ import { ErrorsModule } from './shared/errors/errors.module'
     AuthModule,
     LoaderModule,
     ErrorsModule,
+    LandingPageModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
     }),
@@ -33,4 +35,4 @@ import { ErrorsModule } from './shared/errors/errors.module'
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
