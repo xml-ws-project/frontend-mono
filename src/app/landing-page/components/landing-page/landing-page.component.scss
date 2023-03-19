@@ -1,57 +1,8 @@
-   * {
-     font-size: 18px;
-   }
-
-   .toolbar {
-     position: absolute;
-     top: 10px;
-     left: 0;
-     right: 0;
-     height: 60px;
-     display: flex;
-     align-items: center;
-     background-color: transparent;
-     color: gray;
-     font-weight: 600;
-   }
-
-   .spacer {
-     flex: 1;
-   }
-
-   img {
-     margin-left: 45px;
-     margin-right: 5px;
-   }
-
-   span {
-     cursor: default;
-   }
-
-   a {
-     margin-right: 45px;
-     cursor: pointer;
-   }
-
-   a:hover {
-     color: #03e9f4;
-   }
+@import url('../../../../colors.scss');
 
 
-   .content {
-     display: flex;
-     margin: 82px auto 32px;
-     padding: 0 16px;
-     max-width: 960px;
-     flex-direction: column;
-     align-items: center;
-   }
-
-
-   svg#clouds {
-     position: fixed;
-     bottom: -160px;
-     left: -150px;
-     z-index: -10;
-     width: 1920px;
-   }
+.hero {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

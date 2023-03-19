@@ -88,7 +88,6 @@ export class AuthService {
   }
 
   public isLogged() {
-    console.log(this.user)
     return !!this.user.value
   }
 }
