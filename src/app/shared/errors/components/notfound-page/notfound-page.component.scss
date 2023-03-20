@@ -22,7 +22,7 @@ body {
   align-items: center;
   font-family: "Poppins", sans-serif;
   position: relative;
-  left: 15vmin;
+  left: 25vmin;
   text-align: center;
 }
 
@@ -36,7 +36,7 @@ body {
   width: 40vmin;
   height: 40vmin;
   border-radius: 50%;
-  border: 6vmin solid #f3c623;
+  border: 6vmin solid var(--fav-light);
   position: relative;
 }
 
@@ -55,7 +55,7 @@ body {
 .right-down {
   width: 10vmin;
   height: 10vmin;
-  background-color: #f3c623;
+  background-color: var(--fav-light);
   position: absolute;
 }
 
@@ -143,7 +143,7 @@ h1 {
   font-family: "Montserrat", sans-serif;
   position: absolute;
   bottom: 15vmin;
-  padding: 3vmin 12vmin 3vmin 3vmin;
+  padding: 3vmin 27vmin 3vmin 3vmin;
   font-weight: 600;
   color: #092532;
   cursor: default;
@@ -151,9 +151,9 @@ h1 {
 
 //BUTTON - TAKEN FROM: https://codepen.io/chancesq/pen/PoZGZmR
 .noselect {
-  position: absolute;
-  bottom: 8vmin;
-  left: 75vmin;
+  position: relative;
+  bottom: -40vmin;
+  left: -75vmin;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -182,21 +182,21 @@ button span {
 
 button .text {
   transform: translateX(20px);
-  color: var(--main);
+  color: var(--fav-dark);
   font-weight: bold;
   font-size: 20px;
 }
 
 button .icon {
   position: absolute;
-  border: 1px solid var(--main);
+  border: 1px solid var(--fav-dark);
   transform: translateX(120px);
   height: 50px;
   width: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--main);
+  background-color: var(--fav-dark);
   border-radius: 0px 5px 5px 0px;
 
 }
@@ -207,7 +207,7 @@ button svg {
 
 
 button:hover {
-  background: var(--main);
+  background: var(--fav-dark);
 }
 
 button:hover .text {

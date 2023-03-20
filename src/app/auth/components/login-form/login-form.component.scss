@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  //background: linear-gradient(#141e30, #243b55);
+  background-color: var(--back);
 }
 
 h2 {
@@ -18,7 +18,7 @@ h2 {
   width: 500px;
   padding: 40px;
   transform: translate(-50%, -50%);
-  background: var(--second);
+  background: var(--fav-dark);
   //background: rgba(0, 0, 0, .5);
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
@@ -75,11 +75,12 @@ input:-webkit-autofill:active {
 .login-box .user-box input:valid~label {
   top: -20px;
   left: 0;
-  color: var(--blue);
+  color: var(--pure-white);
   font-size: 15px;
 }
 
 .submit {
+  color: var(--pure-white);
   margin-top: 50px;
   width: 100%;
   height: 35px;
@@ -92,6 +93,10 @@ input:-webkit-autofill:active {
   display: flex;
   width: 100%;
   margin-top: 30px;
+
+  mat-checkbox {
+    color: var(--pure-white);
+  }
 }
 
 .spacer {
@@ -100,11 +105,12 @@ input:-webkit-autofill:active {
 
 .forgot {
   font-size: 17px;
+  color: var(--pure-white);
   cursor: pointer;
 }
 
 .forgot:hover {
-  color: var(--blue);
+  color: var(--fav-light);
 }
 
 svg#clouds {
@@ -130,13 +136,13 @@ svg#clouds {
 }
 
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-  background-color: var(--blue) !important;
+  background-color: var(--fav-light) !important;
 }
 
 //taken from https://frontendresource.com/css-button-templates/
-$bg: var(--second);
+$bg: var(--fav-dark);
 $white: var(--pure-white);
-$black: var(--second);
+$black: var(--fav-dark);
 
 @mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65, 0, .076, 1)) {
   transition: $property $duration $ease;
