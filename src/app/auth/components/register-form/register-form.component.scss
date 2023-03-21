@@ -9,7 +9,7 @@
   position: fixed;
   width: 900px;
   height: 600px;
-  top: 45%;
+  top: 43%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: var(--fav-dark);
@@ -125,8 +125,9 @@
   .register {
     position: fixed;
     width: 500px;
-    height: 900px;
-    top: 50%;
+    height: 950px;
+    top: 48%;
+    box-sizing: border-box;
     transform: translate(-50%, -50%);
   }
 
@@ -134,9 +135,15 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+
+    &__item--datepicker {
+      margin-bottom: 25px;
+    }
   }
 
   .register__form__submit {
+    position: relative;
+    margin-top: 25px;
     justify-content: center;
 
     button {
@@ -158,8 +165,25 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: var(--pure-white) !important;
 }
 
+::ng-deep .mat-form-field {
+  width: 100% !important;
+  border: 1px solid var(--pure-white);
+}
+
+::ng-deep .mat-form-field-wrapper {
+  padding: 0 !important;
+}
+
+::ng-deep .mat-datepicker-toggle {
+  color: var(--pure-white) !important;
+}
+
+::ng-deep .mat-form-field input {
+  color: var(--pure-white) !important;
+}
 
 ::ng-deep .mat-form-field-label {
+  font-size: 18px !important;
   color: var(--pure-white) !important;
 }
 

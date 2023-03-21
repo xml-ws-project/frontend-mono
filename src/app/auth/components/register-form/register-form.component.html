@@ -91,7 +91,14 @@
       </div>
     </div>
     <div class="register__form__row">
-      <div class="register__form__row__item--datepicker"></div>
+      <div class="register__form__row__item--datepicker">
+        <mat-form-field appearance="fill" color="accent">
+          <mat-label>Date of birth</mat-label>
+          <input matInput [matDatepicker]="picker" disabled="true" id="dob" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker disabled="false"></mat-datepicker>
+        </mat-form-field>
+      </div>
       <div class="register__form__row__item--gender">
         <div class="register__form__row__item--gender__name">Gender:</div>
         <label class="checkbox-label">

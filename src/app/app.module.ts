@@ -12,8 +12,7 @@ import { JwtInterceptor } from './interceptor/jwt.interceptor'
 import { LoaderModule } from './shared/loader/loader.module'
 import { CommonModule } from '@angular/common'
 import { ErrorsModule } from './shared/errors/errors.module'
-import { MatDatepickerModule } from '@angular/material/datepicker'
-import { MatNativeDateModule } from '@angular/material/core'
+import { CustomToastrService } from './shared/services/custom-toastr.service'
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,13 +27,15 @@ import { MatNativeDateModule } from '@angular/material/core'
     AuthModule,
     LoaderModule,
     ErrorsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
     ToastrModule.forRoot({
-      positionClass: 'toast-top-center',
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
     }),
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    CustomToastrService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
