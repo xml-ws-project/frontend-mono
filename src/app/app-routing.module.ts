@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router'
 import { MainAppComponent } from './main-app/main-app.component'
 import { LoginPageComponent } from './auth/components/login-page/login-page.component'
 import { ErrorPageComponent } from './shared/errors/error-page.component'
+import { RegisterPageComponent } from './auth/components/register-page/register-page.component'
 
 const routes: Routes = [
   {
@@ -21,6 +22,11 @@ const routes: Routes = [
     path: 'login',
     component: LoginPageComponent,
     title: 'VIMA Airlines | Login',
+  },
+  {
+    path: 'register',
+    component: RegisterPageComponent,
+    title: 'VIMA Airlines | Register',
   },
   {
     path: '**',

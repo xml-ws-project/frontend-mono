@@ -1,0 +1,114 @@
+<app-loader *ngIf="isRegistering"></app-loader>
+<app-home-button></app-home-button>
+<div class="register">
+  <div class="register__title">Register</div>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="register__form">
+    <div class="register__form__row">
+      <div class="register__form__row__item">
+        <input
+          id="firstName"
+          name="firstName"
+          type="text"
+          #firstName="ngModel"
+          matInput
+          required
+          ngModel
+        />
+        <label>First Name</label>
+        <div *ngIf="!firstName.valid && firstName.touched" class="input-error">
+          This field is required.
+        </div>
+      </div>
+      <div class="register__form__row__item">
+        <input
+          id="lastName"
+          name="lastName"
+          type="text"
+          #lastName="ngModel"
+          matInput
+          required
+          ngModel
+        />
+        <label>Last Name</label>
+        <div *ngIf="!lastName.valid && lastName.touched" class="input-error">
+          This field is required.
+        </div>
+      </div>
+    </div>
+    <div class="register__form__row">
+      <div class="register__form__row__item">
+        <input id="jmbg" name="jmbg" type="text" #jmbg="ngModel" matInput required ngModel />
+        <label>JMBG</label>
+        <div *ngIf="!jmbg.valid && jmbg.touched" class="input-error">This field is required.</div>
+      </div>
+      <div class="register__form__row__item">
+        <input
+          id="phoneNumber"
+          name="phoneNumber"
+          type="text"
+          #phoneNumber="ngModel"
+          matInput
+          required
+          ngModel
+        />
+        <label>Phone Number</label>
+        <div *ngIf="!phoneNumber.valid && phoneNumber.touched" class="input-error">
+          This field is required.
+        </div>
+      </div>
+    </div>
+    <div class="register__form__row">
+      <div class="register__form__row__item">
+        <input
+          id="email"
+          name="email"
+          type="text"
+          #email="ngModel"
+          matInput
+          required
+          ngModel
+          email
+        />
+        <label>Email</label>
+        <div *ngIf="!email.valid && email.touched" class="input-error">
+          Please enter valid email.
+        </div>
+      </div>
+      <div class="register__form__row__item">
+        <input
+          id="pass"
+          name="password"
+          type="password"
+          #password="ngModel"
+          matInput
+          required
+          ngModel
+        />
+        <label>Password</label>
+        <div *ngIf="!password.valid && password.touched" class="input-error">
+          Password must be at least 6 characters long.
+        </div>
+      </div>
+    </div>
+    <div class="register__form__row">
+      <div class="register__form__row__item--datepicker"></div>
+      <div class="register__form__row__item--gender">
+        <div class="register__form__row__item--gender__name">Gender:</div>
+        <label class="checkbox-label">
+          <input type="radio" name="gender" [value]="true" [(ngModel)]="isMale" />
+          <span class="checkbox-custom"></span>
+          Male
+        </label>
+        <label class="checkbox-label">
+          <input type="radio" name="gender" [value]="false" [(ngModel)]="isMale" />
+          <span class="checkbox-custom"></span>
+          Female
+        </label>
+      </div>
+    </div>
+    <div class="register__form__submit">
+      <button type="submit" id="submit" [disabled]="!form.valid">Submit</button>
+    </div>
+  </form>
+  <!-- <div class="error-message position" *ngIf="showError">{{ errorMessage }}</div> -->
+</div>
