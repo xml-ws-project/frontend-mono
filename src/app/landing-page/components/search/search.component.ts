@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit {
       preferredSeats: 1,
       departurePlace: '',
       landingPlace: '',
-      passengerClass: null as any
+      passengerClass: 0
     }
   }
 

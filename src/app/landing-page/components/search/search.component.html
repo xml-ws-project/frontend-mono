@@ -1,31 +1,31 @@
 <mat-card class="custom">
   <div class="custom-header">
-    <label class="custom-header-text">Take a look at your next road trip.</label>
+    <label class="custom-header-text">Take a look at your next air trip.</label>
   </div>
 
   <div class="custom-content">
     <div class="custom-content-element">
       <label class="custom-content-element-label" for="icon">Takeoff date</label>
       <div class="custom-content-element-input">
-        <p-calendar [readonlyInput]="true" [style]="{width: '20rem', height: '5rem'}" [(ngModel)]="takeOffDate" [showIcon]="true" inputId="icon"></p-calendar>
+        <p-calendar [readonlyInput]="true" [style]="{width: '21rem', height: '5rem'}" placeholder="Choose date" [(ngModel)]="takeOffDate"></p-calendar>
       </div>
     </div>
     <div class="custom-content-element">
       <label class="custom-content-element-label" for="icon">Landing date</label>
       <div class="custom-content-element-input">
-        <p-calendar [readonlyInput]="true" [style]="{width: '20rem', height: '5rem'}" [(ngModel)]="landingDate" [showIcon]="true" inputId="icon"></p-calendar>
+        <p-calendar [readonlyInput]="true" [style]="{width: '21rem', height: '5rem'}" placeholder="Choose date" [(ngModel)]="landingDate"></p-calendar>
       </div>
     </div>
     <div class="custom-content-element">
       <label class="custom-content-element-label" for="float-input">Departure place</label>
       <div class="custom-content-element-input">
-        <input class="custom-content-element-input-text" id="float-input" [(ngModel)]="searchDTO.departurePlace" type="text">
+        <input class="custom-content-element-input-text" placeholder="Enter departure place" id="float-input" [(ngModel)]="searchDTO.departurePlace" type="text">
       </div>
     </div>
     <div class="custom-content-element">
       <label class="custom-content-element-label" for="float-input">Landing place</label>
       <div class="custom-content-element-input">
-        <input class="custom-content-element-input-text" id="float-input" [(ngModel)]="searchDTO.landingPlace" type="text">
+        <input class="custom-content-element-input-text" id="float-input" placeholder="Enter landing place" [(ngModel)]="searchDTO.landingPlace" type="text">
       </div>
     </div>
     <div class="custom-content-element">
