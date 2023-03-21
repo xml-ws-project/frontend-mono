@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit {
     this.searchDTO = {
       takeOffDate: null as any,
       landingDate: null as any,
-      preferredSeats: 0,
+      preferredSeats: 1,
       departurePlace: '',
       landingPlace: '',
       passengerClass: null as any
@@ -43,7 +43,11 @@ export class SearchComponent implements OnInit {
     } else {
       this.searchDTO.landingDate = null as any;
     }
-    this.searchDTO.passengerClass = parseInt(this.searchDTO.passengerClass.toString())
+    if (this.searchDTO.passengerClass != null) {
+      this.searchDTO.passengerClass = parseInt(this.searchDTO.passengerClass.toString())
+    } else {
+      return;
+    }
     this.flightService.searchFlights(this.searchDTO).subscribe(
       (response: Flight[]) => {
         this.flightService.changeData(response);
