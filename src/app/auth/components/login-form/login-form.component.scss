@@ -31,6 +31,7 @@ h2 {
   color: #fff;
   text-align: center;
   font-size: 30px;
+  text-transform: uppercase;
 }
 
 .login-box .user-box {
@@ -80,13 +81,14 @@ input:-webkit-autofill:active {
 }
 
 .submit {
-  color: var(--pure-white);
+  color: var(--fav-dark);
   margin-top: 50px;
   width: 100%;
   height: 35px;
   text-transform: uppercase;
   font-size: 18px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .options {
@@ -113,154 +115,6 @@ input:-webkit-autofill:active {
   color: var(--fav-light);
 }
 
-svg#clouds {
-  position: fixed;
-  bottom: -140px;
-  left: -150px;
-  z-index: -10;
-  width: 1920px;
-}
-
-.error-message {
-  color: var(--error);
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.input-error {
-  position: relative;
-  bottom: 2vmin;
-  color: var(--error);
-  font-size: 15px;
-  margin-top: 0;
-}
-
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
   background-color: var(--fav-light) !important;
-}
-
-//taken from https://frontendresource.com/css-button-templates/
-$bg: var(--fav-dark);
-$white: var(--pure-white);
-$black: var(--fav-dark);
-
-@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65, 0, .076, 1)) {
-  transition: $property $duration $ease;
-}
-
-* {
-  box-sizing: border-box;
-
-  &::before,
-  &::after {
-    box-sizing: border-box;
-  }
-}
-
-.learn-more {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  outline: none;
-  border: 0;
-  vertical-align: middle;
-  text-decoration: none;
-  background: transparent;
-  padding: 0;
-  font-size: inherit;
-  font-family: inherit;
-  width: 10em;
-  top: 4vmin;
-  left: 4vmin;
-
-  .circle {
-    @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
-    position: relative;
-    display: block;
-    margin: 0;
-    width: 3rem;
-    height: 3rem;
-    background: $black;
-    border-radius: 1.625rem;
-
-    .icon {
-      @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      background: $white;
-
-      &.arrow {
-        @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
-        left: 0.625rem;
-        width: 1.125rem;
-        height: 0.125rem;
-        background: none;
-
-        &::before {
-          position: absolute;
-          content: '';
-          top: -0.25rem;
-          right: 0.0625rem;
-          width: 0.625rem;
-          height: 0.625rem;
-          border-top: 0.125rem solid #fff;
-          border-right: 0.125rem solid #fff;
-          transform: rotate(45deg);
-        }
-      }
-    }
-  }
-
-  .button-text {
-    @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
-    position: absolute;
-    top: 0;
-    left: 4vmin;
-    right: 0;
-    bottom: 0;
-    padding: 0.75rem 0;
-    margin: 0 0 0 1.85rem;
-    color: $black;
-    font-weight: 700;
-    line-height: 1.6;
-    text-align: left;
-    text-transform: uppercase;
-  }
-}
-
-.learn-more:hover {
-  .circle {
-    width: 100%;
-
-    .icon {
-      &.arrow {
-        background: $white;
-        transform: translate(1rem, 0);
-      }
-    }
-  }
-
-  .button-text {
-    color: $white;
-  }
-}
-
-@supports (display: grid) {
-  body {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 0.625rem;
-    grid-template-areas: ". main main ."". main main .";
-  }
-
-  #container {
-    grid-area: main;
-    align-self: center;
-    justify-self: center;
-    position: fixed;
-    top: 3rem;
-    left: 5rem;
-  }
 }

@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe((user) => {
-      this.email = user.email ?? 'NO-EMAIL'
+      this.email = user == null ? 'NO-EMAIL' : user.email
     })
     this.isLogged = this.authService.isLogged()
   }
@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
   }
 
   onRegister() {
-    this.router.navigate([''])
+    this.router.navigate(['/register'])
   }
 
   onBurgerToggle() {

@@ -4,11 +4,9 @@
 
 export const environment = {
   production: false,
-  baseURL: "https://localhost:44352",
-  authURL: "https://localhost:44352/Auth",
-  loginURL: "https://localhost:44352/Auth/login",
-  registerURL: "https://localhost:44352/Auth/register"
-};
+  baseURL: 'https://localhost:44352',
+  authURL: 'https://localhost:44352/Auth',
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
