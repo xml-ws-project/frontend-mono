@@ -1,0 +1,177 @@
+@import url('../../../../colors.scss');
+
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.register {
+  position: fixed;
+  width: 900px;
+  height: 600px;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--fav-dark);
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+
+  &__title {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-size: 30px;
+    color: var(--pure-white);
+    text-transform: uppercase;
+  }
+
+  &__form {
+    width: 100%;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+
+    &__row {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 50px;
+
+      &__item {
+        position: relative;
+        margin-bottom: 10px;
+        width: 330px;
+
+        input {
+          width: 100%;
+          padding: 10px 0;
+          font-size: 18px;
+          color: var(--pure-white);
+          margin-bottom: 30px;
+          border: none;
+          border-bottom: 1px solid var(--pure-white);
+          outline: none;
+          background: transparent;
+          z-index: 100;
+          cursor: pointer;
+        }
+
+        label {
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding: 5px 0;
+          font-size: 18px;
+          color: #fff;
+          pointer-events: none;
+          transition: .5s;
+        }
+
+        input:focus~label,
+        input:valid~label {
+          top: -20px;
+          left: 0;
+          color: var(--fav-light);
+          font-size: 15px;
+        }
+      }
+
+      &__item--datepicker {
+        width: 330px;
+      }
+
+      &__item--gender {
+        width: 330px;
+        display: flex;
+
+        &__name {
+          color: var(--pure-white);
+          width: 50%;
+          font-size: 19px;
+        }
+
+        label {
+          color: var(--pure-white);
+          font-size: 17px;
+          width: 40%;
+          padding-left: 18px;
+          color: var(--pure-white);
+        }
+      }
+    }
+
+    &__submit {
+      position: fixed;
+      display: flex;
+      justify-content: end;
+      width: 100%;
+      top: 85%;
+
+      button {
+        width: 330px;
+        height: 40px;
+        color: var(--fav-dark);
+        font-size: 20px;
+        text-transform: uppercase;
+        margin-right: 50px;
+        border-radius: 5px;
+      }
+    }
+
+  }
+}
+
+@media (max-width: 57rem) {
+  .register {
+    position: fixed;
+    width: 500px;
+    height: 900px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .register__form__row {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .register__form__submit {
+    justify-content: center;
+
+    button {
+      margin: 0;
+    }
+
+  }
+}
+
+.gender-error {
+  color: var(--error);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+
+::ng-deep .mat-form-field-label {
+  color: var(--pure-white) !important;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  color: var(--pure-white) !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  background-color: var(--pure-white) !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  background-color: var(--pure-white) !important;
+  ;
+}

@@ -12,11 +12,19 @@ export class NavbarComponent implements OnInit {
   private userSub: Subscription | undefined
   public isLogged: boolean = false
   public email: string = ''
+  public burger: boolean = true
 
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
+    this.userSub = this.authService.user.subscribe((user) => {
+      this.email = user == null ? 'NO-EMAIL' : user.email
+    })
     this.isLogged = this.authService.isLogged()
+  }
+
+  onHome() {
+    this.router.navigate([''])
   }
 
   onLogin() {
@@ -29,6 +37,10 @@ export class NavbarComponent implements OnInit {
   }
 
   onRegister() {
-    this.router.navigate([''])
+    this.router.navigate(['/register'])
+  }
+
+  onBurgerToggle() {
+    this.burger = !this.burger
   }
 }

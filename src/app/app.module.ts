@@ -13,6 +13,8 @@ import { JwtInterceptor } from './interceptor/jwt.interceptor'
 import { LoaderModule } from './shared/loader/loader.module'
 import { CommonModule } from '@angular/common'
 import { ErrorsModule } from './shared/errors/errors.module'
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatNativeDateModule } from '@angular/material/core'
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,9 +29,11 @@ import { ErrorsModule } from './shared/errors/errors.module'
     AuthModule,
     LoaderModule,
     ErrorsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     LandingPageModule,
     ToastrModule.forRoot({
-      positionClass: 'toast-bottom-right',
+      positionClass: 'toast-top-center',
     }),
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],

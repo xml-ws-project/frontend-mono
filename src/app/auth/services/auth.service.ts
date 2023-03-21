@@ -7,18 +7,26 @@ import { Router } from '@angular/router'
 import { LoginDTO } from '../interface/LoginDTO'
 import jwtDecode from 'jwt-decode'
 import { ToastrService } from 'ngx-toastr'
+import { RegisterDTO } from '../interface/RegisterDTO'
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private tokenExpirationTimer: any
   user = new BehaviorSubject<User>(null as any)
-  loginURL = environment.loginURL
+  authURL = environment.authURL
 
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) {}
 
-  public login(data: LoginDTO): Observable<string> {
+  public register(data: RegisterDTO): Observable<string> {
     return this.http
-      .post(this.loginURL, data, { responseType: 'text' })
+      .post(`${this.authURL}/register`, data, { responseType: 'text' })
+      .pipe(catchError(this.handleError))
+  }
+
+  public login(data: LoginDTO): Observable<string> {
+    console.log(data)
+    return this.http
+      .post(`${this.authURL}/login`, data, { responseType: 'text' })
       .pipe(
         tap((response) => {
           this.handleLogin(response)
@@ -88,7 +96,6 @@ export class AuthService {
   }
 
   public isLogged() {
-    console.log(this.user)
     return !!this.user.value
   }
 }
