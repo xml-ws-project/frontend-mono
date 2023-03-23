@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Flight } from './../../../flights/interface/Flight';
 import { SearchFlightDTO } from './../../../flights/interface/SearchFlightDTO';
@@ -15,7 +16,7 @@ export class SearchComponent implements OnInit {
   takeOffDate!: Date;
   landingDate!: Date;
 
-  constructor(private flightService: FlightService) { }
+  constructor(private flightService: FlightService, private router: Router) { }
 
   ngOnInit(): void {
     this.searchDTO = {
@@ -30,8 +31,6 @@ export class SearchComponent implements OnInit {
 
   search(): void {
     if (this.takeOffDate != null || this.takeOffDate != undefined) {
-      // this.takeOffDate.setDate(this.takeOffDate.getDate() + 1);
-      // var tempDate = new Date(this.takeOffDate.toDateString()).toISOString();
       var tempDate = this.takeOffDate.setHours(this.takeOffDate.getHours() + 1);
       this.searchDTO.takeOffDate = this.takeOffDate.toISOString();
     } else {
@@ -51,7 +50,8 @@ export class SearchComponent implements OnInit {
     this.flightService.searchFlights(this.searchDTO).subscribe(
       (response: Flight[]) => {
         this.flightService.changeData(response);
-        //navigirati na pregled letova
+        localStorage.setItem('travel_class', this.searchDTO.passengerClass.toString());
+        this.router.navigate(['/search-result']);
       },
       (error: HttpErrorResponse) => {
         //ubaciti toast service

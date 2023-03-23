@@ -1,4 +1,3 @@
-import { PassengerClass } from './../enum/PassengerClass.enum';
 export interface SearchFlightDTO {
   takeOffDate: String;
   landingDate: String;

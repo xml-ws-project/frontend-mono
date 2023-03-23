@@ -1,5 +1,4 @@
-import { PassengerClass } from "../enum/PassengerClass.enum";
-
+import { PassengerClass } from './../enum/PassengerClass.enum';
 export interface Flight {
   id: string;
   departurePlace: string;
