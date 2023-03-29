@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router'
 import { NgModule } from '@angular/core'
 import { LandingPageComponent } from '../landing-page/components/landing-page/landing-page.component'
 import { NotfoundPageComponent } from '../shared/errors/components/notfound-page/notfound-page.component'
+import { CreateFlightPageComponent } from '../flights/components/create-flight-page/create-flight-page.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,12 @@ const routes: Routes = [
     path: 'search-result',
     component: MainSearchResComponent
   },
+  {
+    path: 'create-flight',
+    component: CreateFlightPageComponent,
+    title: "VIMA Airlines | Create Flight"
+  }
+
 ]
 
 @NgModule({

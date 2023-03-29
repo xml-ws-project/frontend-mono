@@ -1,5 +1,5 @@
-import { FlightsModule } from './flights/flights.module';
-import { LandingPageModule } from './landing-page/landing-page.module';
+import { FlightsModule } from './flights/flights.module'
+import { LandingPageModule } from './landing-page/landing-page.module'
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { AppRoutingModule } from './app-routing.module'
@@ -15,7 +15,7 @@ import { LoaderModule } from './shared/loader/loader.module'
 import { CommonModule } from '@angular/common'
 import { ErrorsModule } from './shared/errors/errors.module'
 import { MatDatepickerModule } from '@angular/material/datepicker'
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core'
 
 @NgModule({
   declarations: [AppComponent],
@@ -41,4 +41,4 @@ import { MatNativeDateModule } from '@angular/material/core';
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

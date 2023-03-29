@@ -28,3 +28,37 @@ body {
   font-size: 15px;
   margin-top: 0;
 }
+
+
+.page {
+  height: 100%;
+  width: 100%;
+
+  &__hero {
+    height: 40%;
+    width: 100%;
+    background-image: url('../../../../assets/icons/navbar/hero.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center -300px;
+    border-top: 1px solid var(--pure-black);
+    border-bottom: 1px solid var(--pure-black);
+  }
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    background-color: var(--fav-dark);
+
+    &__search {
+      position: relative;
+      bottom: 20vmin;
+      width: 70%;
+      height: 35%;
+      margin: auto;
+      background-color: transparent;
+    }
+  }
+
+}

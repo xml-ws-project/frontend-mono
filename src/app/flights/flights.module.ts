@@ -1,16 +1,28 @@
-import { FlightCardResComponent } from './components/flight-card-res/flight-card-res.component';
-import { MainSearchResComponent } from './components/main-search-res/main-search-res.component';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { DividerModule } from 'primeng/divider';
-import { ToastModule } from 'primeng/toast';
+import { FlightCardResComponent } from './components/flight-card-res/flight-card-res.component'
+import { MainSearchResComponent } from './components/main-search-res/main-search-res.component'
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { DividerModule } from 'primeng/divider'
+import { ToastModule } from 'primeng/toast'
+import { CreateFlightPageComponent } from './components/create-flight-page/create-flight-page.component'
+import { CreateFlightFormComponent } from './components/create-flight-form/create-flight-form.component'
+import { MatSelectModule } from '@angular/material/select'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
-  declarations: [MainSearchResComponent, FlightCardResComponent],
+  declarations: [
+    MainSearchResComponent,
+    FlightCardResComponent,
+    CreateFlightPageComponent,
+    CreateFlightFormComponent,
+  ],
   imports: [
     CommonModule,
     DividerModule,
-    ToastModule
-  ]
+    ReactiveFormsModule,
+    FormsModule,
+    ToastModule,
+    MatSelectModule,
+  ],
 })
-export class FlightsModule { }
+export class FlightsModule {}

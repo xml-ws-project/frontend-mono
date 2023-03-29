@@ -1,0 +1,103 @@
+<form [formGroup]="form" (submit)="onSubmit()" class="form">
+  <div class="form__title">Create new flight</div>
+  <div class="form__content">
+    <div class="form__content__row">
+      <div class="form__content__row__item">
+        <input
+          id="departurePlace"
+          name="departurePlace"
+          formControlName="departurePlace"
+          type="text"
+          matInput
+          required
+          ngModel
+        />
+        <label>Departure place</label>
+        <div *ngIf="form.get('departurePlace').invalid && form.get('departurePlace').touched">
+          <div *ngIf="form.get('departurePlace').errors?.['required']" class="input-error">
+            This field is required.
+          </div>
+        </div>
+      </div>
+      <div class="form__content__row__item">
+        <input
+          id="landingPlace"
+          name="landingPlace"
+          formControlName="landingPlace"
+          type="text"
+          matInput
+          required
+          ngModel
+        />
+        <label>Landing place</label>
+        <div *ngIf="form.get('landingPlace').invalid && form.get('landingPlace').touched">
+          <div *ngIf="form.get('landingPlace').errors?.['required']" class="input-error">
+            This field is required.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form__content__row"></div>
+    <div class="form__content__row">
+      <div class="form__content__row__item">
+        <input
+          id="economyClassPrice"
+          name="economyClassPrice"
+          formControlName="economyClassPrice"
+          type="number"
+          min="0"
+          matInput
+          required
+          ngModel
+        />
+        <label>Economy seat price</label>
+        <div *ngIf="form.get('economyClassPrice').invalid && form.get('economyClassPrice').touched">
+          <div *ngIf="form.get('economyClassPrice').errors?.['required']" class="input-error">
+            This field is required.
+          </div>
+        </div>
+      </div>
+      <div class="form__content__row__item">
+        <input
+          id="businessClassPrice"
+          name="businessClassPrice"
+          formControlName="businessClassPrice"
+          type="number"
+          min="0"
+          matInput
+          required
+          ngModel
+        />
+        <label>Business seat price</label>
+        <div
+          *ngIf="form.get('businessClassPrice').invalid && form.get('businessClassPrice').touched"
+        >
+          <div *ngIf="form.get('businessClassPrice').errors?.['required']" class="input-error">
+            This field is required.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form__content__row">
+      <div class="form__content__row__item">
+        <mat-form-field appearance="fill">
+          <mat-label>Airlines</mat-label>
+          <mat-select formControlName="flightLayoutId" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let layout of layouts" [value]="layout.id">
+              {{ layout.id }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('flightLayoutId').errors?.['required']"
+            >Please choose an animal</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="form__content__row__item">
+        <div class="form__content__row__item__submit">
+          <button type="submit" [disabled]="!form.valid">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

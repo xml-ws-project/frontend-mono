@@ -45,6 +45,6 @@ export class NavbarComponent implements OnInit {
   }
 
   onNewFlight(){
-   this.router.navigate(['']) 
+   this.router.navigate(['/create-flight']) 
   }
 }
