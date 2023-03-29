@@ -13,7 +13,7 @@ import { LoaderModule } from './shared/loader/loader.module'
 import { CommonModule } from '@angular/common'
 import { ErrorsModule } from './shared/errors/errors.module'
 import { MatDatepickerModule } from '@angular/material/datepicker'
-import { MatNativeDateModule } from '@angular/material/core'
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [AppComponent],

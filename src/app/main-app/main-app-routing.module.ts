@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { LandingPageComponent } from '../landing-page/components/landing-page/landing-page.component'
 import { NotfoundPageComponent } from '../shared/errors/components/notfound-page/notfound-page.component'
 
+
 const routes: Routes = [
   {
     path: '',
