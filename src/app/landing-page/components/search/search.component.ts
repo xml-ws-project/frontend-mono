@@ -1,9 +1,11 @@
+import { SearchResult } from './../../../flights/class/SearchResult';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Flight } from './../../../flights/interface/Flight';
 import { SearchFlightDTO } from './../../../flights/interface/SearchFlightDTO';
 import { FlightService } from './../../../flights/service/flight.service';
 import { Component, OnInit } from '@angular/core';
+import { PassengerClass } from 'src/app/flights/enum/PassengerClass.enum';
 
 @Component({
   selector: 'app-search',
@@ -49,7 +51,8 @@ export class SearchComponent implements OnInit {
     }
     this.flightService.searchFlights(this.searchDTO).subscribe(
       (response: Flight[]) => {
-        this.flightService.changeData(response);
+        var searchResult: SearchResult = new SearchResult(response, this.searchDTO.passengerClass === 0 ? PassengerClass.ECONOMY : PassengerClass.BUSINESS);
+        this.flightService.changeData(searchResult, true);
         localStorage.setItem('travel_class', this.searchDTO.passengerClass.toString());
         this.router.navigate(['/search-result']);
       },

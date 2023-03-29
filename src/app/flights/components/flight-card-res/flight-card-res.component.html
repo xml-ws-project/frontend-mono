@@ -1,10 +1,10 @@
 <div class="result-component">
   <div class="date-time">
     <div class="date-time-label">
-      08.05.2023.
+      {{currentFlight.takeOffDateTime | date:'dd.MM.yyyy.'}}
     </div>
     <div class="date-time-info">
-      10:00 &rarr; 12:15 UTC+1
+      {{currentFlight.takeOffDateTime | date:'HH:mm' }} &rarr; {{currentFlight.landingDateTime | date:'HH:mm'}} UTC+1
     </div>
   </div>
   <div class="divider"></div>
@@ -13,7 +13,7 @@
       Flight route
     </div>
     <div class="place-info">
-      Valencia &rarr; Paris
+      {{currentFlight.departurePlace | titlecase}} &rarr; {{currentFlight.landingPlace | titlecase}}
     </div>
   </div>
   <div class="divider"></div>
@@ -22,17 +22,7 @@
       Regular price
     </div>
     <div class="price-info">
-      12000 din
+      {{price}} EUR
     </div>
   </div>
-</div>
-<div class="result-component">
-  <div class="date-time"></div>
-  <div class="place"></div>
-  <div class="price"></div>
-</div>
-<div class="result-component">
-  <div class="date-time"></div>
-  <div class="place"></div>
-  <div class="price"></div>
 </div>

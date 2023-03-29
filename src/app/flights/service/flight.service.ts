@@ -5,6 +5,7 @@ import { NewFlightDTO } from './../interface/NewFlightDTO';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SearchResult } from '../class/SearchResult';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,15 @@ export class FlightService {
   private flightSource = new BehaviorSubject(null as any);
   desiredFlights = this.flightSource.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    let storedProp = localStorage.getItem('searchResult');
+    if (storedProp)
+      this.changeData(JSON.parse(storedProp), false)
+  }
 
-  changeData(data: any[]) {
+  changeData(data: SearchResult, storeProp: boolean = false) {
+    if (storeProp)
+      localStorage.setItem('searchResult', JSON.stringify(data));
     this.flightSource.next(data);
   }
 

@@ -4,15 +4,15 @@
     <div class="page__content__result">
     	<div class="res-header">Choose the desired flight and join our journey.</div>
       <div class="res-content">
-        <app-flight-card-res></app-flight-card-res>
+        <app-flight-card-res *ngFor="let flight of flights" (click)="onSelect(flight)" [currentFlight]="flight" [chosenClass]="passengerClass"></app-flight-card-res>
       </div>
       <div class="button-group">
-        <div class="class">Economy class</div>
+        <div class="class">{{passengerClass | titlecase}} class</div>
         <div class="group">
-          <div class="button button-back">
+          <div class="button button-back" (click)="back()">
             Back to search
           </div>
-          <div class="button">
+          <div class="button" [ngClass]="{'disabled-button' : isSelected === false}">
             Buy ticket
           </div>
         </div>

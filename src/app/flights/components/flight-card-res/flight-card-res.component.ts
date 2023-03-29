@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { PassengerClass } from './../../enum/PassengerClass.enum';
+import { Flight } from './../../interface/Flight';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-flight-card-res',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlightCardResComponent implements OnInit {
 
+  @Input() currentFlight: Flight;
+  @Input() chosenClass: PassengerClass;
+
+  price: number;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.price = this.currentFlight.pricelist[this.chosenClass];
   }
 
 }
