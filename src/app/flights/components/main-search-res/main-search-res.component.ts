@@ -1,7 +1,7 @@
 import { PassengerClass } from './../../enum/PassengerClass.enum';
 import { FlightService } from './../../service/flight.service';
 import { Flight } from './../../interface/Flight';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 
 @Component({
@@ -9,9 +9,9 @@ import { Route, Router } from '@angular/router';
   templateUrl: './main-search-res.component.html',
   styleUrls: ['./main-search-res.component.scss']
 })
-export class MainSearchResComponent implements OnInit {
+export class MainSearchResComponent implements OnInit, OnDestroy {
 
-  flights: Flight[];
+  flights!: Flight[];
   passengerClass: PassengerClass;
   selectedFlight: Flight;
   isSelected: boolean = false;
@@ -25,6 +25,10 @@ export class MainSearchResComponent implements OnInit {
     });
     this.isSelected = false;
     this.selectedFlight = null;
+  }
+
+  ngOnDestroy(): void {
+    this.flightService.deleteData();
   }
 
   back(): void {

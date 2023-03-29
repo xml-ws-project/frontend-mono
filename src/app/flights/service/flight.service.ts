@@ -1,3 +1,4 @@
+import { browserRefresh } from './../../app.component';
 import { SearchFlightDTO } from './../interface/SearchFlightDTO';
 import { Flight } from './../interface/Flight';
 import { Observable, BehaviorSubject } from 'rxjs';
@@ -25,6 +26,12 @@ export class FlightService {
     if (storeProp)
       localStorage.setItem('searchResult', JSON.stringify(data));
     this.flightSource.next(data);
+  }
+
+  deleteData(): void {
+    if (!browserRefresh) {
+      localStorage.removeItem('searchResult');
+    }
   }
 
   public addFlight(flight: NewFlightDTO): Observable<string> {
