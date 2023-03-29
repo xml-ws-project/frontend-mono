@@ -1,0 +1,66 @@
+<mat-card class="custom">
+  <div class="custom-header">
+    <label class="custom-header-text">Take a look at your next air trip.</label>
+  </div>
+
+  <div class="custom-content">
+    <div class="custom-content-element">
+      <label class="custom-content-element-label" for="icon">Takeoff date</label>
+      <div class="custom-content-element-input">
+        <p-calendar [readonlyInput]="true" [style]="{width: '21rem', height: '5rem'}" placeholder="Choose date" [(ngModel)]="takeOffDate"></p-calendar>
+      </div>
+    </div>
+    <div class="custom-content-element">
+      <label class="custom-content-element-label" for="icon">Landing date</label>
+      <div class="custom-content-element-input">
+        <p-calendar [readonlyInput]="true" [style]="{width: '21rem', height: '5rem'}" placeholder="Choose date" [(ngModel)]="landingDate"></p-calendar>
+      </div>
+    </div>
+    <div class="custom-content-element">
+      <label class="custom-content-element-label" for="float-input">Departure place</label>
+      <div class="custom-content-element-input">
+        <input class="custom-content-element-input-text" placeholder="Enter departure place" id="float-input" [(ngModel)]="searchDTO.departurePlace" type="text">
+      </div>
+    </div>
+    <div class="custom-content-element">
+      <label class="custom-content-element-label" for="float-input">Landing place</label>
+      <div class="custom-content-element-input">
+        <input class="custom-content-element-input-text" id="float-input" placeholder="Enter landing place" [(ngModel)]="searchDTO.landingPlace" type="text">
+      </div>
+    </div>
+    <div class="custom-content-element">
+      <div class="custom-content-element-button-div">
+        <button class="custom-content-element-button-div-button" (click)="op.toggle($event)">Cards info</button>
+      </div>
+    </div>
+  </div>
+
+  <p-divider class="custom-divider" align="center" type="solid">
+    <button class="custom-button" (click)="search()">Search</button>
+  </p-divider>
+
+  <p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '400px', height: '250px'}">
+    <div class="panel-content">
+      <p-divider></p-divider>
+      <div class="panel-content-radio-group">
+        <div class="field-radiobutton radio-element">
+          <p-radioButton name="class1" [(ngModel)]="searchDTO.passengerClass" value="0"></p-radioButton>
+          <label class="panel-content-input-label" for="class1">Economy</label>
+        </div>
+        <div class="field-radiobutton radio-element">
+            <p-radioButton  name="class2" [(ngModel)]="searchDTO.passengerClass" value="1"></p-radioButton>
+            <label class="panel-content-input-label" for="class2">Business</label>
+        </div>
+      </div>
+      <p-divider></p-divider>
+      <div class="panel-content-input">
+        <label  class="panel-content-input-label" for="float-input">Number of cards</label>
+        <p-inputNumber [style]="{height: '5rem'}" [min]="1" mode="decimal" [(ngModel)]="searchDTO.preferredSeats" class="input-field" [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal"
+        decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
+      </div>
+      <p-divider></p-divider>
+    </div>
+  </p-overlayPanel>
+
+
+</mat-card>
