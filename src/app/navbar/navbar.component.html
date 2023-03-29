@@ -18,6 +18,10 @@
       <div (click)="onBurgerToggle()" class="navbar__main__container__burger--icon"></div>
       <div class="navbar__main__container__links">
         <div class="navbar__main__container__links__item">
+          <img src="../../assets/icons/navbar/admin/new-flight.png" />
+          <div class="navbar__main__container__links__item__text" (click)="onNewFlight()" >New Flight</div>
+        </div>
+        <div class="navbar__main__container__links__item">
           <img src="../../assets/icons/navbar/about.png" />
           <div class="navbar__main__container__links__item__text">About Us</div>
         </div>
@@ -43,6 +47,7 @@
   <div [ngClass]="burger ? 'burger-menu' : 'burger-menu-toggle'">
     <div class="burger-menu-toggle__links">
       <div class="burger-menu-toggle__links__item" (click)="onRegister()">00 Home</div>
+      <div class="burger-menu-toggle__links__item" (click)="onNewFlight()">01 New Flight</div>
       <div class="burger-menu-toggle__links__item">01 About Us</div>
       <div class="burger-menu-toggle__links__item" *ngIf="isLogged">02 Profile</div>
       <div class="burger-menu-toggle__links__item" (click)="onRegister()" *ngIf="!isLogged">
@@ -52,7 +57,7 @@
         03 Login
       </div>
       <div class="burger-menu-toggle__links__item" (click)="onLogout()" *ngIf="isLogged">
-        04 Logout
+        03 Logout
       </div>
     </div>
   </div>

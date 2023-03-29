@@ -43,4 +43,8 @@ export class NavbarComponent implements OnInit {
   onBurgerToggle() {
     this.burger = !this.burger
   }
+
+  onNewFlight(){
+   this.router.navigate(['']) 
+  }
 }
