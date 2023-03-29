@@ -8,6 +8,7 @@ import { CreateFlightPageComponent } from './components/create-flight-page/creat
 import { CreateFlightFormComponent } from './components/create-flight-form/create-flight-form.component'
 import { MatSelectModule } from '@angular/material/select'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { LoaderModule } from '../shared/loader/loader.module'
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     ReactiveFormsModule,
     FormsModule,
     ToastModule,
+    LoaderModule,
     MatSelectModule,
   ],
 })

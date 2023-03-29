@@ -12,13 +12,16 @@ export class NavbarComponent implements OnInit {
   private userSub: Subscription | undefined
   public isLogged: boolean = false
   public email: string = ''
+  public role: string = ''
   public burger: boolean = true
 
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe((user) => {
-      this.email = user == null ? 'NO-EMAIL' : user.email
+      if (user == null) return
+      this.email = user.email
+      this.role = user.role
     })
     this.isLogged = this.authService.isLogged()
   }
@@ -44,7 +47,7 @@ export class NavbarComponent implements OnInit {
     this.burger = !this.burger
   }
 
-  onNewFlight(){
-   this.router.navigate(['/create-flight']) 
+  onNewFlight() {
+    this.router.navigate(['/create-flight'])
   }
 }

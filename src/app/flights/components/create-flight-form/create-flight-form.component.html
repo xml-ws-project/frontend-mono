@@ -1,3 +1,4 @@
+<app-loader *ngIf="isCreating"></app-loader>
 <form [formGroup]="form" (submit)="onSubmit()" class="form">
   <div class="form__title">Create new flight</div>
   <div class="form__content">
@@ -81,15 +82,14 @@
     <div class="form__content__row">
       <div class="form__content__row__item">
         <mat-form-field appearance="fill">
-          <mat-label>Airlines</mat-label>
+          <mat-label>Airplane model</mat-label>
           <mat-select formControlName="flightLayoutId" required>
-            <mat-option>--</mat-option>
             <mat-option *ngFor="let layout of layouts" [value]="layout.id">
               {{ layout.id }}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="form.get('flightLayoutId').errors?.['required']"
-            >Please choose an animal</mat-error
+            >This field is required</mat-error
           >
         </mat-form-field>
       </div>

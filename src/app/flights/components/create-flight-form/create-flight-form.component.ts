@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 import { FlightService } from '../../service/flight.service'
-import { NgForm } from '@angular/forms'
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http'
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-create-flight-form',
@@ -14,7 +15,11 @@ export class CreateFlightFormComponent implements OnInit {
   public isCreating: boolean = false
   public layouts: any
 
-  constructor(private router: Router, private flightService: FlightService) {}
+  constructor(
+    private router: Router,
+    private flightService: FlightService,
+    private toastr: ToastrService,
+  ) {}
 
   ngOnInit(): void {
     this.flightService.getFlightLayouts().subscribe((response) => {
@@ -25,11 +30,23 @@ export class CreateFlightFormComponent implements OnInit {
       landingPlace: new FormControl(undefined, Validators.required),
       economyClassPrice: new FormControl(undefined, Validators.required),
       businessClassPrice: new FormControl(undefined, Validators.required),
-      flightLayoutId: new FormControl(null, Validators.required),
+      flightLayoutId: new FormControl(undefined, Validators.required),
     })
   }
 
   onSubmit() {
-    console.log(this.form.value)
+    this.isCreating = true
+    this.flightService.addFlight(this.form.value).subscribe(
+      (response: string) => {
+        this.isCreating = false
+        this.toastr.success('Flight successfully created.')
+        this.router.navigate([''])
+      },
+      (error: HttpErrorResponse) => {
+        this.isCreating = false
+        this.toastr.error('Something went wrong, please try again.')
+        window.location.reload()
+      },
+    )
   }
 }
