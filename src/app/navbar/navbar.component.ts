@@ -25,6 +25,7 @@ export class NavbarComponent implements OnInit {
 
   onHome() {
     this.router.navigate([''])
+    this.onBurgerToggle()
   }
 
   onLogin() {

@@ -24,7 +24,6 @@ export class AuthService {
   }
 
   public login(data: LoginDTO): Observable<string> {
-    console.log(data)
     return this.http
       .post(`${this.authURL}/login`, data, { responseType: 'text' })
       .pipe(
@@ -46,7 +45,7 @@ export class AuthService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    var errorMessage = 'An unknown error occurred.'
+    var errorMessage = 'An unknown error occurred, please try again later.'
     if (!error.error || error.error.type) return throwError(errorMessage)
 
     return throwError(error.error)

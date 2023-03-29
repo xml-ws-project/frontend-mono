@@ -42,9 +42,9 @@
   </div>
   <div [ngClass]="burger ? 'burger-menu' : 'burger-menu-toggle'">
     <div class="burger-menu-toggle__links">
-      <div class="burger-menu-toggle__links__item" (click)="onRegister()">00 Home</div>
+      <div class="burger-menu-toggle__links__item" (click)="onHome()">00 Home</div>
       <div class="burger-menu-toggle__links__item">01 About Us</div>
-      <div class="burger-menu-toggle__links__item" *ngIf="isLogged">02 Profile</div>
+      <div class="burger-menu-toggle__links__item" *ngIf="isLogged">01 Profile</div>
       <div class="burger-menu-toggle__links__item" (click)="onRegister()" *ngIf="!isLogged">
         02 Register
       </div>

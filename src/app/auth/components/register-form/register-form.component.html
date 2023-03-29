@@ -2,91 +2,95 @@
 <app-home-button></app-home-button>
 <div class="register">
   <div class="register__title">Register</div>
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="register__form">
+  <form [formGroup]="form" (submit)="onFormSubmit()" class="register__form">
     <div class="register__form__row">
       <div class="register__form__row__item">
         <input
+          formControlName="firstName"
           id="firstName"
           name="firstName"
           type="text"
-          #firstName="ngModel"
           matInput
           required
-          ngModel
         />
         <label>First Name</label>
-        <div *ngIf="!firstName.valid && firstName.touched" class="input-error">
-          This field is required.
+        <div *ngIf="form.get('firstName').invalid && form.get('firstName').touched">
+          <div *ngIf="form.get('firstName').errors?.['required']" class="input-error">
+            This field is required.
+          </div>
         </div>
       </div>
       <div class="register__form__row__item">
         <input
+          formControlName="lastName"
           id="lastName"
           name="lastName"
           type="text"
-          #lastName="ngModel"
-          matInput
           required
-          ngModel
+          matInput
         />
         <label>Last Name</label>
-        <div *ngIf="!lastName.valid && lastName.touched" class="input-error">
-          This field is required.
+        <div *ngIf="form.get('lastName').invalid && form.get('lastName').touched">
+          <div *ngIf="form.get('lastName').errors?.['required']" class="input-error">
+            This field is required.
+          </div>
         </div>
       </div>
     </div>
     <div class="register__form__row">
       <div class="register__form__row__item">
-        <input id="jmbg" name="jmbg" type="text" #jmbg="ngModel" matInput required ngModel />
+        <input formControlName="jmbg" id="jmbg" name="jmbg" type="text" matInput required />
         <label>JMBG</label>
-        <div *ngIf="!jmbg.valid && jmbg.touched" class="input-error">This field is required.</div>
+        <div *ngIf="form.get('jmbg').invalid && form.get('jmbg').touched">
+          <div *ngIf="form.get('jmbg').errors?.['required']" class="input-error">
+            This field is required.
+          </div>
+        </div>
       </div>
       <div class="register__form__row__item">
         <input
+          formControlName="phoneNumber"
           id="phoneNumber"
           name="phoneNumber"
           type="text"
-          #phoneNumber="ngModel"
           matInput
           required
-          ngModel
         />
         <label>Phone Number</label>
-        <div *ngIf="!phoneNumber.valid && phoneNumber.touched" class="input-error">
-          This field is required.
+        <div *ngIf="form.get('phoneNumber').invalid && form.get('phoneNumber').touched">
+          <div *ngIf="form.get('phoneNumber').errors?.['required']" class="input-error">
+            This field is required.
+          </div>
         </div>
       </div>
     </div>
     <div class="register__form__row">
       <div class="register__form__row__item">
-        <input
-          id="email"
-          name="email"
-          type="text"
-          #email="ngModel"
-          matInput
-          required
-          ngModel
-          email
-        />
+        <input formControlName="email" id="email" name="email" type="text" required email />
         <label>Email</label>
-        <div *ngIf="!email.valid && email.touched" class="input-error">
-          Please enter valid email.
+        <div *ngIf="form.get('email').invalid && form.get('email').touched">
+          <div *ngIf="form.get('email').errors?.['required']" class="input-error">
+            This field is required.
+          </div>
+          <div *ngIf="form.get('email').errors?.['email']" class="input-error">
+            Please enter a valid email.
+          </div>
         </div>
       </div>
       <div class="register__form__row__item">
         <input
+          formControlName="password"
           id="pass"
           name="password"
           type="password"
-          #password="ngModel"
           matInput
           required
-          ngModel
         />
         <label>Password</label>
-        <div *ngIf="!password.valid && password.touched" class="input-error">
-          Password must be at least 6 characters long.
+        <div *ngIf="form.get('password').invalid && form.get('password').touched">
+          <div *ngIf="form.get('password').errors?.['required']" class="input-error">
+            This field is required.
+          </div>
         </div>
       </div>
     </div>
@@ -94,20 +98,33 @@
       <div class="register__form__row__item--datepicker">
         <mat-form-field appearance="fill" color="accent">
           <mat-label>Date of birth</mat-label>
-          <input matInput [matDatepicker]="picker" disabled="true" id="dob" />
+          <input
+            id="dateOfBirth"
+            name="dateOfBirth"
+            formControlName="dateOfBirth"
+            matInput
+            [matDatepicker]="picker"
+            required
+            readonly
+          />
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker disabled="false"></mat-datepicker>
+          <mat-datepicker required #picker color="primary"></mat-datepicker>
         </mat-form-field>
+        <div *ngIf="form.get('dateOfBirth').invalid && form.get('dateOfBirth').touched">
+          <div *ngIf="form.get('dateOfBirth').errors?.['required']" class="input-error date-error">
+            This field is required.
+          </div>
+        </div>
       </div>
       <div class="register__form__row__item--gender">
-        <div class="register__form__row__item--gender__name">Gender:</div>
+        <mat-label class="register__form__row__item--gender__name">Gender:</mat-label>
         <label class="checkbox-label">
-          <input type="radio" name="gender" [value]="true" [(ngModel)]="isMale" />
+          <input type="radio" name="isMale" [value]="true" formControlName="isMale" required />
           <span class="checkbox-custom"></span>
           Male
         </label>
         <label class="checkbox-label">
-          <input type="radio" name="gender" [value]="false" [(ngModel)]="isMale" />
+          <input type="radio" name="isMale" [value]="false" formControlName="isMale" />
           <span class="checkbox-custom"></span>
           Female
         </label>

@@ -78,6 +78,11 @@
 
       &__item--datepicker {
         width: 330px;
+
+        input {
+          cursor: default;
+          pointer-events: none !important;
+        }
       }
 
       &__item--gender {
@@ -124,11 +129,45 @@
 @media (max-width: 57rem) {
   .register {
     position: fixed;
-    width: 500px;
-    height: 950px;
-    top: 48%;
+    width: 520px;
+    height: 850px;
+    top: 52%;
     box-sizing: border-box;
-    transform: translate(-50%, -50%);
+
+    &__title {
+      text-align: center;
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-size: 25px;
+    }
+
+    &__form {
+      padding-top: 15px;
+
+      &__row {
+        padding: 0;
+
+        &__item {
+          margin-bottom: 10px;
+
+          input {
+            padding: 10px 0;
+            font-size: 13px;
+            margin-bottom: 25px;
+          }
+
+          label {
+            padding: 5px 0;
+            font-size: 15px;
+          }
+
+          input:focus~label,
+          input:valid~label {
+            font-size: 15px;
+          }
+        }
+      }
+    }
   }
 
   .register__form__row {
@@ -153,9 +192,10 @@
   }
 }
 
-.gender-error {
-  color: var(--error);
+.date-error {
+  margin-top: 30px;
 }
+
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -171,7 +211,7 @@ input:-webkit-autofill:active {
 }
 
 ::ng-deep .mat-form-field-wrapper {
-  padding: 0 !important;
+  padding: 7px !important;
 }
 
 ::ng-deep .mat-datepicker-toggle {
@@ -183,19 +223,11 @@ input:-webkit-autofill:active {
 }
 
 ::ng-deep .mat-form-field-label {
-  font-size: 18px !important;
-  color: var(--pure-white) !important;
-}
-
-::ng-deep .mat-focused .mat-form-field-label {
+  font-size: 19px !important;
   color: var(--pure-white) !important;
 }
 
 ::ng-deep.mat-form-field-underline {
-  background-color: var(--pure-white) !important;
-}
-
-::ng-deep.mat-form-field-ripple {
-  background-color: var(--pure-white) !important;
-  ;
+  display: none !important;
+  color: var(--pure-white);
 }
