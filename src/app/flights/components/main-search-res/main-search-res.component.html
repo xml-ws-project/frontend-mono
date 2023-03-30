@@ -2,22 +2,36 @@
   <div class="page__hero"></div>
   <div class="page__content">
     <div class="page__content__result">
-    	<div class="res-header">Choose the desired flight and join our journey.</div>
+      <div class="res-header">Choose the desired flight and join our journey.</div>
       <div class="res-content">
-        <app-flight-card-res *ngFor="let flight of flights" (click)="onSelect(flight)" [currentFlight]="flight" [chosenClass]="passengerClass"></app-flight-card-res>
+        <app-flight-card-res
+          *ngFor="let flight of flights"
+          (click)="onSelect(flight)"
+          [currentFlight]="flight"
+          [chosenClass]="passengerClass"
+        ></app-flight-card-res>
       </div>
       <div class="button-group">
-        <div class="class">{{passengerClass | titlecase}} class</div>
+        <div class="class">{{ passengerClass | titlecase }} class</div>
         <div class="group">
-          <div class="button button-back" (click)="back()">
-            Back to search
-          </div>
-          <div class="button" [ngClass]="{'disabled-button' : isSelected === false}">
+          <div class="button button-back" (click)="back()">Back to search</div>
+          <div
+            class="button"
+            [ngClass]="{ 'disabled-button': isSelected === false }"
+            *ngIf="role != 'ADMIN'"
+          >
             Buy ticket
+          </div>
+          <div
+            class="button"
+            [ngClass]="{ 'disabled-button': isSelected === false }"
+            *ngIf="role === 'ADMIN'"
+            (click)="onInfo()"
+          >
+            Info
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-

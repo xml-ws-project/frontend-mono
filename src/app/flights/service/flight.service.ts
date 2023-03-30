@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { SearchResult } from '../class/SearchResult'
 import { FlightLayout } from '../interface/FlightLayout'
+import { AdminFlightDTO } from '../interface/AdminFlightDTO'
 
 @Injectable({
   providedIn: 'root',
@@ -33,6 +34,9 @@ export class FlightService {
 
   public getFlight(flightId: string): Observable<Flight> {
     return this.http.get<Flight>(`${this.apiFlightURL}/${flightId}`)
+  }
+  public getAdminFlight(flightId: string): Observable<AdminFlightDTO> {
+    return this.http.get<AdminFlightDTO>(`${this.apiFlightURL}/${flightId}`)
   }
 
   public getAll(): Observable<Flight[]> {
