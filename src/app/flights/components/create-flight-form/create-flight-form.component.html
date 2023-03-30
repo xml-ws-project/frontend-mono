@@ -85,7 +85,7 @@
           <mat-label>Airplane model</mat-label>
           <mat-select formControlName="flightLayoutId" required>
             <mat-option *ngFor="let layout of layouts" [value]="layout.id">
-              {{ layout.id }}
+              {{ layout.name }}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="form.get('flightLayoutId').errors?.['required']"

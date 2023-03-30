@@ -52,7 +52,7 @@ export class ShowFlightFormComponent implements OnInit {
     this.flightService.removeFlight(this.id).subscribe(
       (response: string) => {
         this.isDeleting = false
-        this.toastr.success('KITA')
+        this.toastr.success(response)
         this.router.navigate([''])
       },
       (error: HttpErrorResponse) => {
