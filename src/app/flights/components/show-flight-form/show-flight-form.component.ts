@@ -42,12 +42,9 @@ export class ShowFlightFormComponent implements OnInit {
     console.log(this.id)
     this.flightService.getAdminFlight(this.id).subscribe((respone) => {
       this.flight = respone
-      console.log(this.flight.flightDTO.pricelist[PassengerClass.ECONOMY])
       this.pricelist = this.flight.flightDTO.pricelist
       this.economyPrice = this.flight.flightDTO.pricelist[PassengerClass.ECONOMY]
       this.businessPrice = this.flight.flightDTO.pricelist[PassengerClass.BUSINESS]
-      console.log(this.economyPrice)
-      console.log(this.businessPrice)
     })
   }
   Delete() {
@@ -55,11 +52,12 @@ export class ShowFlightFormComponent implements OnInit {
     this.flightService.removeFlight(this.id).subscribe(
       (response: string) => {
         this.isDeleting = false
-        this.toastr.success(response)
+        this.toastr.success('KITA')
         this.router.navigate([''])
       },
       (error: HttpErrorResponse) => {
         this.isDeleting = false
+        console.log(error)
         this.toastr.error(error.error)
       },
     )

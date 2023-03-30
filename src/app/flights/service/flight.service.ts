@@ -44,7 +44,7 @@ export class FlightService {
   }
 
   public removeFlight(flightId: string): Observable<string> {
-    return this.http.delete<string>(`${this.apiFlightURL}/${flightId}`)
+    return this.http.delete<string>(`${this.apiFlightURL}/${flightId}, { responseType: 'text' }`)
   }
 
   public searchFlights(dto: SearchFlightDTO): Observable<Flight[]> {
