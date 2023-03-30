@@ -1,0 +1,78 @@
+.outher {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.border {
+  border: 3px solid #5072a7;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  background-color: #ebecf0;
+  width: 50%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+}
+.buttons {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+/* CSS */
+.button-71 {
+  background-color: #5072a7;
+  border: 0;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: system-ui, -apple-system, system-ui, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue',
+    sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  outline: 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  height: 50px;
+  width: 150px;
+  margin-right: 15px;
+}
+
+.button-71:before {
+  background-color: initial;
+  background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+  border-radius: 125px;
+  content: '';
+  height: 50%;
+  left: 4%;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  transition: all 0.3s;
+  width: 92%;
+}
+
+.button-71:hover {
+  box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset, rgba(0, 0, 0, 0.1) 0 3px 5px,
+    rgba(0, 0, 0, 0.1) 0 10px 13px;
+  transform: scale(1.05);
+}
+
+// @media (min-width: 768px) {
+//   .button-71 {
+//     padding: 16px 48px;
+//   }
+// }

@@ -1,0 +1,10 @@
+<div class="page">
+  <div class="page__tickets">
+    <div *ngFor="let ticket of tickets" class="page__tickets__ticket">
+      <app-ticket-card [ticketDTO]="ticket"></app-ticket-card>
+    </div>
+  </div>
+  <div *ngIf="noTickets == true">
+    <app-no-ticket></app-no-ticket>
+  </div>
+</div>
