@@ -1,3 +1,5 @@
+import { FlightsModule } from './flights/flights.module';
+import { LandingPageModule } from './landing-page/landing-page.module';
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { AppRoutingModule } from './app-routing.module'
@@ -29,6 +31,8 @@ import { LoaderComponent } from './shared/loader/loader-component/loader.compone
     ErrorsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    LandingPageModule,
+    FlightsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-center',
     }),
@@ -36,4 +40,4 @@ import { LoaderComponent } from './shared/loader/loader-component/loader.compone
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
