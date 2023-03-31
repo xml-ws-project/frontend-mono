@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { MainAppModule } from './main-app/main-app.module'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms'
 import { AuthModule } from './auth/auth.module'
@@ -20,7 +19,6 @@ import { CustomToastrService } from './shared/services/custom-toastr.service'
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    MainAppModule,
     NoopAnimationsModule,
     CommonModule,
     FormsModule,

@@ -5,9 +5,20 @@ import { MainAppRoutingModule } from './main-app-routing.module'
 import { MainAppComponent } from './main-app.component'
 import { NavbarComponent } from '../navbar/navbar.component'
 import { FooterComponent } from '../footer/footer.component'
+import { MatIconModule } from '@angular/material/icon'
+import { TicketCardComponent } from '../ticket/components/ticket-card/ticket-card/ticket-card.component'
+import { TicketOverviewComponent } from '../ticket/components/tickets-overview/ticket-overview/ticket-overview.component'
+import { NoTicketComponent } from '../ticket/components/no-tickets/no-ticket/no-ticket.component'
 
 @NgModule({
-  declarations: [MainAppComponent, NavbarComponent, FooterComponent],
-  imports: [CommonModule, RouterModule, MainAppRoutingModule],
+  declarations: [
+    MainAppComponent,
+    NavbarComponent,
+    TicketCardComponent,
+    TicketOverviewComponent,
+    NoTicketComponent,
+    FooterComponent,
+  ],
+  imports: [CommonModule, RouterModule, MainAppRoutingModule, MatIconModule],
 })
 export class MainAppModule {}
