@@ -16,14 +16,13 @@ import { ErrorsModule } from './shared/errors/errors.module'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
 import { LoaderComponent } from './shared/loader/loader-component/loader.component'
-import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
     NoopAnimationsModule,
     CommonModule,
     FormsModule,

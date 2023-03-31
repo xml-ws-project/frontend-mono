@@ -12,9 +12,22 @@
           <div class="button button-back" (click)="back()">
             Back to search
           </div>
-          <div class="button" [ngClass]="{'disabled-button' : isSelected === false}">
+          <div class="button" (click)="showDialog()" [ngClass]="{'disabled-button' : isSelected === false}">
             Buy ticket
           </div>
+          <p-dialog header="Purchase confirmation" [(visible)]="visible" [modal]="true" [style]="{ width: '80rem', height:'20rem' }" [draggable]="false" [resizable]="true">
+              <div class="dialog">
+                <div class="dialog-content">
+                  <label>Additional luggage: </label>
+                  <p-selectButton [options]="stateOptions" [(ngModel)]="additionalLuggage" optionLabel="label" optionValue="value"></p-selectButton>
+                </div>
+                <div class="dialog-buttons" (click)="buy()">
+                  <div class="button">
+                    Confirm
+                  </div>
+                </div>
+              </div>
+          </p-dialog>
         </div>
       </div>
     </div>

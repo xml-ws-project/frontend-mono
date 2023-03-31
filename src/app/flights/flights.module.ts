@@ -4,13 +4,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DividerModule } from 'primeng/divider';
 import { ToastModule } from 'primeng/toast';
+import { DialogModule } from 'primeng/dialog';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [MainSearchResComponent, FlightCardResComponent],
   imports: [
     CommonModule,
     DividerModule,
-    ToastModule
+    ToastModule,
+    DialogModule,
+    SelectButtonModule,
+    FormsModule
   ]
 })
 export class FlightsModule { }

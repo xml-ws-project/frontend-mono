@@ -6,6 +6,7 @@ import { SearchFlightDTO } from './../../../flights/interface/SearchFlightDTO';
 import { FlightService } from './../../../flights/service/flight.service';
 import { Component, OnInit } from '@angular/core';
 import { PassengerClass } from 'src/app/flights/enum/PassengerClass.enum';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-search',
@@ -18,7 +19,7 @@ export class SearchComponent implements OnInit {
   takeOffDate!: Date;
   landingDate!: Date;
 
-  constructor(private flightService: FlightService, private router: Router) { }
+  constructor(private flightService: FlightService, private router: Router, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.searchDTO = {
@@ -51,13 +52,13 @@ export class SearchComponent implements OnInit {
     }
     this.flightService.searchFlights(this.searchDTO).subscribe(
       (response: Flight[]) => {
-        var searchResult: SearchResult = new SearchResult(response, this.searchDTO.passengerClass === 0 ? PassengerClass.ECONOMY : PassengerClass.BUSINESS);
+        var searchResult: SearchResult = new SearchResult(response, this.searchDTO.passengerClass === 0 ? PassengerClass.ECONOMY : PassengerClass.BUSINESS, this.searchDTO.preferredSeats);
         this.flightService.changeData(searchResult, true);
         localStorage.setItem('travel_class', this.searchDTO.passengerClass.toString());
         this.router.navigate(['/search-result']);
       },
       (error: HttpErrorResponse) => {
-        //ubaciti toast service
+        this.toastrService.error(error.message);
       }
     )
   }

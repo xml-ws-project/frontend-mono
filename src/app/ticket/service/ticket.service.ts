@@ -1,3 +1,4 @@
+import { CreateTicketDTO } from 'src/app/ticket/interface/CreateTicketDTO';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -13,10 +14,14 @@ export class TicketService {
 
   ticketUrl = environment.ticketURL;
 
-  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) {}
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
 
-  public  GetTicketsForUser(userId:string): Observable<TicketDTO[]> {
+  public PurchaseTickets(dto: CreateTicketDTO): Observable<boolean> {
+    return this.http.post<boolean>(`${this.ticketUrl}/`, dto);
+  }
+
+  public GetTicketsForUser(userId: string): Observable<TicketDTO[]> {
     return this.http
-      .get<TicketDTO[]>(`${this.ticketUrl}/`+userId);
+      .get<TicketDTO[]>(`${this.ticketUrl}/` + userId);
   }
 }
