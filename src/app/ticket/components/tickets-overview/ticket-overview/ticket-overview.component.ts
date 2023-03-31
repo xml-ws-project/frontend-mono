@@ -42,7 +42,6 @@ export class TicketOverviewComponent implements OnInit {
   ngDoCheck() {
     if (this.tickets == null) {
       this.noTickets = true
-      console.log('Ovdee saaaam' + this.noTickets)
-    }
+    } else this.noTickets = false
   }
 }
