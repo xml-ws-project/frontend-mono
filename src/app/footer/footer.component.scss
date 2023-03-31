@@ -45,14 +45,14 @@
 
 .footer-distributed .footer-links a {
   display: inline-block;
-  line-height: 1.8;
-  font-weight: 400;
+  font-weight: 500;
   text-decoration: none;
   color: inherit;
+  margin-right: 10px;
 }
 
 .footer-distributed .footer-company-name {
-  color: #222;
+  color: #ffffff;
   font-size: 14px;
   font-weight: normal;
   margin: 0;
@@ -104,7 +104,6 @@
 }
 
 .footer-distributed .footer-links a:before {
-  content: "|";
   font-weight: 300;
   font-size: 20px;
   left: 0;
@@ -143,6 +142,25 @@
   margin-top: 25px;
 }
 
+.footer-icons {
+  display: flex;
+
+  &__social {
+    height: 45px;
+    width: 45px;
+    margin-right: 10px;
+
+    img {
+      height: inherit;
+      width: inherit;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+
+
+}
+
 .footer-distributed .footer-icons a {
   display: inline-block;
   width: 35px;
@@ -158,6 +176,7 @@
 
   margin-right: 3px;
   margin-bottom: 5px;
+
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */
@@ -179,6 +198,10 @@
 
   .footer-distributed .footer-center i {
     margin-left: 0;
+  }
+
+  .footer-icons {
+    justify-content: center;
   }
 
 }

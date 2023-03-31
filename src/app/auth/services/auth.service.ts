@@ -45,7 +45,7 @@ export class AuthService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    var errorMessage = 'An unknown error occurred, please try again later.'
+    var errorMessage = 'An unknown error occurred.'
     if (!error.error || error.error.type) return throwError(errorMessage)
 
     return throwError(error.error)

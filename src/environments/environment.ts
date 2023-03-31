@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  baseURL: 'https://localhost:44352',
-  authURL: 'https://localhost:44352/Auth',
-  ticketURL: 'https://localhost:44352/Ticket',
+  baseURL: 'http://localhost:5000',
+  authURL: 'http://localhost:5000/Auth',
+  ticketURL: 'http://localhost:5000/Ticket',
 }
 
 /*
