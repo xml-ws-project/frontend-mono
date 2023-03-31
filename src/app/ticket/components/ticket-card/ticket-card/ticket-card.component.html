@@ -1,0 +1,77 @@
+<div class="divBorder" [ngClass]="{ lightBlueText: isEconomy, darkBlueText: !isEconomy }">
+  <div class="cardBorder">
+    <div
+      class="vimaAirlines"
+      [ngClass]="{ lightBlueBackground: isEconomy, darkBlueBackground: !isEconomy }"
+    >
+      <div class="container">
+        <img class="logo" src="../../../../../assets/icons/navbar/logo.png" alt="LOGO" />
+        <div class="name">VIMA Airlines</div>
+      </div>
+    </div>
+
+    <div
+      class="departureLanding"
+      [ngClass]="{ lightBlueBorder: isEconomy, darkBlueBorder: !isEconomy }"
+    >
+      <div class="arrows"><label>DEPARTURE</label></div>
+      <div></div>
+      <div class="arrows"><label>LANDING</label></div>
+    </div>
+
+    <div class="destinations">
+      <div class="arrows">
+        <label>{{ ticketDTO.departurePlace }}</label>
+      </div>
+      <div class="arrows black">
+        <mat-icon>double_arrow</mat-icon>
+        <mat-icon>double_arrow</mat-icon>
+        <mat-icon>double_arrow</mat-icon>
+        <mat-icon>double_arrow</mat-icon>
+        <mat-icon>double_arrow</mat-icon>
+      </div>
+      <div class="arrows">
+        <label>{{ ticketDTO.landingPlace }}</label>
+      </div>
+    </div>
+
+    <div class="flightTimes" [ngClass]="{ lightBlueBorder: isEconomy, darkBlueBorder: !isEconomy }">
+      <div class="arrows">
+        <label>{{ departureDate }}</label>
+      </div>
+      <div class="arrows black"><mat-icon>alarm</mat-icon></div>
+      <div class="arrows">
+        <label>{{ landingDate }}</label>
+      </div>
+    </div>
+
+    <div class="info bold black">
+      <div class="arrows"><label>MR / MRS</label></div>
+      <div class="arrows"><label>CLASS</label></div>
+      <div class="arrows"><label>SEAT</label></div>
+      <div class="arrows"><label>ADDITIONAL LUGGAGE</label></div>
+    </div>
+
+    <div class="info">
+      <div class="arrows">
+        <label>{{ ticketDTO.firstname }} {{ ticketDTO.lastname }}</label>
+      </div>
+      <div class="arrows">
+        <label>{{ class }}</label>
+      </div>
+      <div class="arrows">
+        <label>{{ ticketDTO.seatNumber }}</label>
+      </div>
+      <div class="arrows">
+        <div class="luggage">
+          <div *ngIf="ticketDTO.additionalLuggage == true">
+            <mat-icon>luggage</mat-icon>
+          </div>
+          <div *ngIf="ticketDTO.additionalLuggage == false">
+            <mat-icon>no_luggage</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

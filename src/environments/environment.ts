@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   baseURL: 'https://localhost:44352',
   authURL: 'https://localhost:44352/Auth',
+  ticketURL: 'https://localhost:44352/Ticket',
 }
 
 /*
