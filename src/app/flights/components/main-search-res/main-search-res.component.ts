@@ -48,6 +48,11 @@ export class MainSearchResComponent implements OnInit, OnDestroy {
   }
 
   showDialog(): void {
+    if (this.authService.isLogged() == false) {
+      this.toastrService.info('Please login to your account first.');
+      this.router.navigate(['/login']);
+      return;
+    }
     this.visible = true;
   }
 
@@ -68,7 +73,7 @@ export class MainSearchResComponent implements OnInit, OnDestroy {
     this.authService.user.subscribe(user => this.userId = user.id);
     this.createTicket = {
       seatNumbers: [],
-      userId: '1a08fe64-fa5b-488c-b32e-db3183987961',
+      userId: this.userId,
       flightId: this.selectedFlight.id,
       additionalLuggage: this.additionalLuggage,
       passengerClass: this.passengerClass === 'ECONOMY' ? 0 : 1,

@@ -34,13 +34,13 @@ export class SearchComponent implements OnInit {
 
   search(): void {
     if (this.takeOffDate != null || this.takeOffDate != undefined) {
-      var tempDate = this.takeOffDate.setHours(this.takeOffDate.getHours() + 1);
+      var tempDate = this.takeOffDate.setHours(this.takeOffDate.getHours() + 2);
       this.searchDTO.takeOffDate = this.takeOffDate.toISOString();
     } else {
       this.searchDTO.takeOffDate = null as any;
     }
     if (this.landingDate != null || this.landingDate != undefined) {
-      var tempDate = this.landingDate.setHours(this.landingDate.getHours() + 1);
+      var tempDate = this.landingDate.setHours(this.landingDate.getHours() + 2);
       this.searchDTO.landingDate = this.landingDate.toISOString();
     } else {
       this.searchDTO.landingDate = null as any;
