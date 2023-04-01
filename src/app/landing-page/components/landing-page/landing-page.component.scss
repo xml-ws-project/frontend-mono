@@ -21,16 +21,16 @@
   &__content {
     height: 100%;
     width: 100%;
-    //background-color: var(--gray);
-    background-color: var(--back);
+    background-color: var(--fav-dark);
 
     &__search {
       position: relative;
       bottom: 20vmin;
       width: 70%;
       height: 60%;
+      //height: 35%;
       margin: auto;
-      background-color: yellow;
+      background-color: transparent;
     }
   }
 

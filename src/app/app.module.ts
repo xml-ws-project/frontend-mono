@@ -1,3 +1,5 @@
+import { FlightsModule } from './flights/flights.module'
+import { LandingPageModule } from './landing-page/landing-page.module'
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { AppRoutingModule } from './app-routing.module'
