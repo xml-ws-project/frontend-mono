@@ -24,7 +24,6 @@ export class AuthService {
   }
 
   public login(data: LoginDTO): Observable<string> {
-    console.log(data)
     return this.http
       .post(`${this.authURL}/login`, data, { responseType: 'text' })
       .pipe(

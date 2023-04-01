@@ -4,13 +4,13 @@
 
 export const environment = {
   production: false,
-  baseURL: "https://localhost:44352",
-  authURL: "https://localhost:44352/Auth",
-  loginURL: "https://localhost:44352/Auth/login",
-  registerURL: "https://localhost:44352/Auth/register",
-  ticketURL: 'https://localhost:44352/Ticket',
-  flightsURL: "https://localhost:44352/Flight"
-};
+  baseURL: 'http://localhost:5000',
+  authURL: 'http://localhost:5000/Auth',
+  ticketURL: 'http://localhost:5000/Ticket',
+  loginURL: 'http://localhost:5000/Auth/login',
+  registerURL: 'http://localhost:5000/Auth/register',
+  flightsURL: 'http://localhost:5000/Flight',
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

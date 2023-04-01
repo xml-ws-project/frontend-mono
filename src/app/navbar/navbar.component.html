@@ -1,12 +1,14 @@
 <div class="navbar">
   <div class="navbar__help">
+    <div class="navbar__help__time">{{ currentDate | date : 'dd.MM.yyyy - hh:mm:ss a' }}</div>
+    <span class="spacer"></span>
     <div class="navbar__help__item">Feedback</div>
     <div class="navbar__help__item">Contact</div>
     <div class="navbar__help__item">Settings</div>
   </div>
   <div class="navbar__main">
     <div class="navbar__main__container">
-      <div class="navbar__main__container__logo" (click)="onHome()">
+      <div class="navbar__main__container__logo shrink" (click)="onHome()">
         <img
           class="navbar__main__container__logo__img"
           src="../../assets/icons/navbar/logo.png"
@@ -29,22 +31,45 @@
           <img src="../../assets/icons/navbar/profile.png" />
           <div class="navbar__main__container__links__item__text">{{ email }}</div>
         </div>
-        <div class="navbar__main__container__links__item" (click)="onLogin()" *ngIf="!isLogged">
+        <div
+          class="navbar__main__container__links__item shrink"
+          (click)="onLogin()"
+          *ngIf="!isLogged"
+        >
           <img src="../../assets/icons/navbar/login.png" />
           <div class="navbar__main__container__links__item__text">Login</div>
         </div>
-        <div class="navbar__main__container__links__item" (click)="onLogout()" *ngIf="isLogged">
-          <img src="../../assets/icons/navbar/logout.png" />
-          <div class="navbar__main__container__links__item__text">Logout</div>
+        <div class="navbar__main__container__links__item shrink" *ngIf="isLogged">
+          <button
+            mat-icon-button
+            aria-label="Example icon-button with a menu"
+            [matMenuTriggerFor]="menu"
+          >
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>account_circle</mat-icon>
+              <span>My Profile</span>
+            </button>
+            <button mat-menu-item (click)="onTickets()">
+              <img src="../../assets/icons/navbar/ticket.png" class="menu-img" />
+              <span>My Tickets</span>
+            </button>
+            <button mat-menu-item (click)="onLogout()" class="logout">
+              <mat-icon>logout</mat-icon>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
         </div>
       </div>
     </div>
   </div>
   <div [ngClass]="burger ? 'burger-menu' : 'burger-menu-toggle'">
     <div class="burger-menu-toggle__links">
-      <div class="burger-menu-toggle__links__item" (click)="onRegister()">00 Home</div>
-      <div class="burger-menu-toggle__links__item">01 About Us</div>
-      <div class="burger-menu-toggle__links__item" *ngIf="isLogged">02 Profile</div>
+      <div class="burger-menu-toggle__links__item" (click)="onHome()">00 Home</div>
+      <!-- <div class="burger-menu-toggle__links__item">01 About Us</div> -->
+      <div class="burger-menu-toggle__links__item" *ngIf="isLogged">01 Profile</div>
       <div class="burger-menu-toggle__links__item" (click)="onRegister()" *ngIf="!isLogged">
         02 Register
       </div>

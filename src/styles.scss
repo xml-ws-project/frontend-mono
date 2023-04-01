@@ -3,7 +3,6 @@
 html,
 body {
   height: 100%;
-  font-size: 62.5%;
 }
 
 body {
@@ -27,4 +26,12 @@ body {
   color: var(--error);
   font-size: 15px;
   margin-top: 0;
+}
+
+.shrink {
+  transition: all .2s ease-in-out;
+}
+
+.shrink:hover {
+  transform: scale(0.9);
 }
