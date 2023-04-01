@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
+import { MatMenuTrigger } from '@angular/material/menu'
 import { Router } from '@angular/router'
-import { Subscription } from 'rxjs'
+import { map, share, Subscription, timer } from 'rxjs'
 import { AuthService } from '../auth/services/auth.service'
 
 @Component({
@@ -13,13 +14,34 @@ export class NavbarComponent implements OnInit {
   public isLogged: boolean = false
   public email: string = ''
   public burger: boolean = true
+  public currentDate: Date = new Date()
+  public subscription: Subscription
+  public intervalId: any
 
   constructor(private router: Router, private authService: AuthService) {}
+
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger
+
+  someMethod() {
+    this.trigger.openMenu()
+  }
 
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe((user) => {
       this.email = user == null ? 'NO-EMAIL' : user.email
     })
+    this.subscription = timer(0, 1000)
+      .pipe(
+        map(() => new Date()),
+        share(),
+      )
+      .subscribe((time) => {
+        let hour = this.currentDate.getHours()
+        let minuts = this.currentDate.getMinutes()
+        let seconds = this.currentDate.getSeconds()
+        let NewTime = hour + ':' + minuts + ':' + seconds
+        this.currentDate = time
+      })
     this.isLogged = this.authService.isLogged()
   }
 
@@ -43,5 +65,16 @@ export class NavbarComponent implements OnInit {
 
   onBurgerToggle() {
     this.burger = !this.burger
+  }
+
+  onTickets() {
+    this.router.navigate(['/user/tickets'])
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.intervalId)
+    if (this.subscription) {
+      this.subscription.unsubscribe()
+    }
   }
 }

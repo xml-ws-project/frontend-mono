@@ -17,4 +17,8 @@ export class CustomToastrService {
   public warning(title: string | undefined, message: string, positionClass: ToasterPosition) {
     this.toastr.warning(message, title, { positionClass })
   }
+
+  public info(title: string | undefined, message: string, positionClass: ToasterPosition) {
+    this.toastr.info(message, title, { positionClass })
+  }
 }

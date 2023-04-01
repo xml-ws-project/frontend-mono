@@ -7,7 +7,7 @@
   width: 100%;
   text-align: left;
   font: bold 16px sans-serif;
-  padding: 55px 50px;
+  padding: 45px 55px 45px 55px;
 }
 
 .footer-distributed .footer-left,
@@ -29,6 +29,7 @@
   color: #ffffff;
   font-size: 36px;
   margin: 0;
+  cursor: pointer;
 }
 
 /* Footer links */
@@ -173,6 +174,11 @@
   margin-right: 3px;
   margin-bottom: 5px;
 
+}
+
+.moto {
+  font-style: italic;
+  font-size: 0.9rem;
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */

@@ -10,6 +10,7 @@ import { TicketCardComponent } from '../ticket/components/ticket-card/ticket-car
 import { TicketOverviewComponent } from '../ticket/components/tickets-overview/ticket-overview/ticket-overview.component'
 import { NoTicketComponent } from '../ticket/components/no-tickets/no-ticket/no-ticket.component'
 import { MatMenuModule } from '@angular/material/menu'
+import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
@@ -23,6 +24,14 @@ import { far } from '@fortawesome/free-regular-svg-icons'
     NoTicketComponent,
     FooterComponent,
   ],
-  imports: [CommonModule, RouterModule, MainAppRoutingModule, MatIconModule, MatMenuModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MainAppRoutingModule,
+    MatIconModule,
+    MatMenuModule,
+    MatAutocompleteModule,
+  ],
+  exports: [MatMenuModule],
 })
 export class MainAppModule {}

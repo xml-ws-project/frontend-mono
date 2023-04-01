@@ -14,21 +14,20 @@
     background-size: cover;
     background-attachment: fixed;
     background-position: center -300px;
-    border-top: 1px solid var(--pure-black);
+    border-top: 1px solid var(--fav-light);
     border-bottom: 1px solid var(--pure-black);
   }
 
   &__content {
     height: 100%;
     width: 100%;
-    background-color: var(--fav-dark);
+    background-color: var(--background);
 
     &__search {
       position: relative;
-      bottom: 20vmin;
+      bottom: 15vmin;
       width: 70%;
-      height: 60%;
-      //height: 35%;
+      height: 75%;
       margin: auto;
       background-color: transparent;
     }

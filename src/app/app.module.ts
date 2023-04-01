@@ -14,6 +14,7 @@ import { LoaderModule } from './shared/loader/loader.module'
 import { CommonModule } from '@angular/common'
 import { ErrorsModule } from './shared/errors/errors.module'
 import { CustomToastrService } from './shared/services/custom-toastr.service'
+import { MatMenuModule } from '@angular/material/menu'
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { CustomToastrService } from './shared/services/custom-toastr.service'
     AuthModule,
     LoaderModule,
     ErrorsModule,
+    MatMenuModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,

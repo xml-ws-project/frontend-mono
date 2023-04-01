@@ -30,7 +30,7 @@ export class LogoutGuard implements CanActivate {
       map((user) => {
         const isAuth = !!user
         if (isAuth) {
-          this.custom.warning(
+          this.custom.info(
             'Unauthorized.',
             "You can't acces this path while you are logged in.",
             ToasterPosition.topRight,

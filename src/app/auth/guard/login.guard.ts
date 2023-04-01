@@ -32,7 +32,7 @@ export class LoginGuard implements CanActivate {
         if (isAuth) {
           return true
         }
-        this.custom.warning(
+        this.custom.info(
           'Unauthorized.',
           'You must be logged in to access this path.',
           ToasterPosition.topRight,

@@ -1,28 +1,24 @@
 <div class="result-component">
   <div class="date-time">
     <div class="date-time-label">
-      {{currentFlight.takeOffDateTime | date:'dd.MM.yyyy.'}}
+      {{ currentFlight.takeOffDateTime | date : 'dd.MM.yyyy.' }}
     </div>
     <div class="date-time-info">
-      {{currentFlight.takeOffDateTime | date:'HH:mm' }} &rarr; {{currentFlight.landingDateTime | date:'HH:mm'}} UTC+1
+      {{ currentFlight.takeOffDateTime | date : 'HH:mm' }} &rarr;
+      {{ currentFlight.landingDateTime | date : 'HH:mm' }} UTC+1
     </div>
   </div>
   <div class="divider"></div>
   <div class="place">
-    <div class="place-label">
-      Flight route
-    </div>
+    <div class="place-label">Flight route</div>
     <div class="place-info">
-      {{currentFlight.departurePlace | titlecase}} &rarr; {{currentFlight.landingPlace | titlecase}}
+      {{ currentFlight.departurePlace | titlecase }} &rarr;
+      {{ currentFlight.landingPlace | titlecase }}
     </div>
   </div>
   <div class="divider"></div>
   <div class="price">
-    <div class="price-label">
-      Regular price
-    </div>
-    <div class="price-info">
-      {{price}} EUR
-    </div>
+    <div class="price-label">Regular price</div>
+    <div class="price-info">{{ price }} EUR</div>
   </div>
 </div>
