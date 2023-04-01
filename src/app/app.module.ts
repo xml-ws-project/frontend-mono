@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common'
 import { ErrorsModule } from './shared/errors/errors.module'
 import { CustomToastrService } from './shared/services/custom-toastr.service'
 import { MatMenuModule } from '@angular/material/menu'
+import { LoaderService } from './shared/loader/services/loader.service'
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,6 +38,7 @@ import { MatMenuModule } from '@angular/material/menu'
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     CustomToastrService,
+    LoaderService,
   ],
   bootstrap: [AppComponent],
 })

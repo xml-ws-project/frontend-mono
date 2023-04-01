@@ -1,4 +1,4 @@
-import { MainSearchResComponent } from './../flights/components/main-search-res/main-search-res.component';
+import { MainSearchResComponent } from './../flights/components/main-search-res/main-search-res.component'
 import { Routes, RouterModule } from '@angular/router'
 import { NgModule } from '@angular/core'
 import { LandingPageComponent } from '../landing-page/components/landing-page/landing-page.component'
@@ -29,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: 'search-result',
-    component: MainSearchResComponent
+    component: MainSearchResComponent,
   },
 ]
 
@@ -38,4 +38,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MainAppRoutingModule { }
+export class MainAppRoutingModule {}
