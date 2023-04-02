@@ -14,6 +14,20 @@
     </div>
     <div class="flight__content__row">
       <div class="flight__content__row__item">
+        <label>Take off time</label>
+        <div class="flight__content__row__item__data" datetime="MM/DD/YYYY HH">
+          {{ flight.flightDTO.takeOffDateTime | date : 'dd.MM.YYYY.   HH:mm' }}
+        </div>
+      </div>
+      <div class="flight__content__row__item">
+        <label>Landing tmie</label>
+        <div class="flight__content__row__item__data">
+          {{ flight.flightDTO.landingDateTime | date : 'dd.MM.YYYY.   HH:mm' }}
+        </div>
+      </div>
+    </div>
+    <div class="flight__content__row">
+      <div class="flight__content__row__item">
         <label>Economy remaining seats</label>
         <div class="flight__content__row__item__data">{{ flight.remainingEconomy }}</div>
       </div>

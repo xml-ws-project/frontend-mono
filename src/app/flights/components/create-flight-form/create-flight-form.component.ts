@@ -14,6 +14,10 @@ export class CreateFlightFormComponent implements OnInit {
   public form: FormGroup
   public isCreating: boolean = false
   public layouts: any
+  public minTakeOffDate = new Date()
+  public minLandingDate = new Date()
+  public takeOffDate: any
+  public landingDate: any
 
   constructor(
     private router: Router,
@@ -31,10 +35,27 @@ export class CreateFlightFormComponent implements OnInit {
       economyClassPrice: new FormControl(undefined, Validators.required),
       businessClassPrice: new FormControl(undefined, Validators.required),
       flightLayoutId: new FormControl(undefined, Validators.required),
+      takeOffDateTime: new FormControl(undefined, Validators.required),
+      landingDateTime: new FormControl(undefined, Validators.required),
     })
+  }
+  validateDate() {
+    this.minLandingDate = this.form.value.takeOffDateTime
   }
 
   onSubmit() {
+    this.takeOffDate = this.form.value.takeOffDateTime
+    this.landingDate = this.form.value.landingDateTime
+    this.takeOffDate.setHours(this.takeOffDate.getHours() + 2)
+    this.takeOffDate = this.takeOffDate.toISOString()
+    this.landingDate.setHours(this.landingDate.getHours() + 2)
+    this.landingDate = this.landingDate.toISOString()
+    this.form.patchValue({
+      takeOffDateTime: this.takeOffDate,
+      landingDateTime: this.landingDate,
+    })
+    console.log(this.form.value)
+
     this.isCreating = true
     this.flightService.addFlight(this.form.value).subscribe(
       (response: string) => {
@@ -45,7 +66,6 @@ export class CreateFlightFormComponent implements OnInit {
       (error: HttpErrorResponse) => {
         this.isCreating = false
         this.toastr.error('Something went wrong, please try again.')
-        window.location.reload()
       },
     )
   }

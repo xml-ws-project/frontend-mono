@@ -38,7 +38,64 @@
         </div>
       </div>
     </div>
-    <div class="form__content__row"></div>
+    <div class="form__content__row">
+      <div class="form__content__row__item" style="font-size: 15px; color: '#fff'; margin-top: 3px">
+        Take off time
+      </div>
+      <div class="form__content__row__item" style="font-size: 15px; color: '#fff'; margin-top: 3px">
+        Landing time
+      </div>
+    </div>
+    <div class="form__content__row" style="margin-bottom: 20px">
+      <div class="form__content__row__item">
+        <p-calendar
+          id="takeOffDate"
+          name="takeOffDate"
+          formControlName="takeOffDateTime"
+          placeholder="Take off date"
+          [showTime]="true"
+          matInput
+          [style]="{ height: '40px' }"
+          [minDate]="minTakeOffDate"
+          [readonlyInput]="true"
+          [showIcon]="true"
+          [required]="true"
+          (onSelect)="validateDate()"
+        ></p-calendar>
+        <div
+          *ngIf="form.get('takeOffDateTime').invalid && form.get('takeOffDateTime').touched"
+          style="margin-top: 16px"
+        >
+          <div *ngIf="form.get('takeOffDateTime').errors?.['required']" class="input-error">
+            This field is required.
+          </div>
+        </div>
+      </div>
+      <div class="form__content__row__item">
+        <label>Take off time</label>
+        <p-calendar
+          placeholder="Landing date"
+          id="landingDate"
+          name="landingDate"
+          formControlName="landingDateTime"
+          [showIcon]="true"
+          [required]="true"
+          [showTime]="true"
+          [minDate]="minLandingDate"
+          [readonlyInput]="true"
+          [style]="{ height: '40px' }"
+          matInput
+        ></p-calendar>
+        <div
+          *ngIf="form.get('landingDateTime').invalid && form.get('landingDateTime').touched"
+          style="margin-top: 16px"
+        >
+          <div *ngIf="form.get('landingDateTime').errors?.['required']" class="input-error">
+            This field is required.
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="form__content__row">
       <div class="form__content__row__item">
         <input

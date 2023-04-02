@@ -29,7 +29,7 @@ export class FlightService {
   }
 
   public addFlight(flight: NewFlightDTO): Observable<string> {
-    return this.http.post<string>(`${this.apiFlightURL}/`, flight)
+    return this.http.post(`${this.apiFlightURL}/`, flight, { responseType: 'text' })
   }
 
   public getFlight(flightId: string): Observable<Flight> {

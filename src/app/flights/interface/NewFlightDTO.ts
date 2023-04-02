@@ -1,9 +1,9 @@
 export interface NewFlightDTO {
-  departurePlace: string;
-  landingPlace: string;
-  takeOffDateTime: Date;
-  landingDateTime: Date;
-  flightLayoutId: string;
-  businessClassPrice: number;
-  economyClassPrice: number;
+  departurePlace: string
+  landingPlace: string
+  takeOffDateTime: String
+  landingDateTime: String
+  flightLayoutId: string
+  businessClassPrice: number
+  economyClassPrice: number
 }

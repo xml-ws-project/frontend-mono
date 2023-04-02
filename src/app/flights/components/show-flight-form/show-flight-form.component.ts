@@ -39,7 +39,6 @@ export class ShowFlightFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id')
-    console.log(this.id)
     this.flightService.getAdminFlight(this.id).subscribe((respone) => {
       this.flight = respone
       this.pricelist = this.flight.flightDTO.pricelist

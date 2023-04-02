@@ -47,6 +47,19 @@
           pointer-events: none;
           transition: 0.5s;
         }
+        .p-calendar {
+          width: 330px;
+          padding: 10px 0;
+          font-size: 18px;
+          color: var(--pure-white);
+          margin-bottom: 18px;
+          border: none;
+          border-bottom: 1px solid var(--pure-white);
+          outline: none;
+          background: transparent;
+          z-index: 100;
+          cursor: pointer;
+        }
 
         mat-form-field {
           width: 100%;
@@ -86,6 +99,10 @@
   }
 }
 
+.error {
+  margin-top: 200px !important;
+}
+
 .mat-error {
   font-size: 14px !important;
   margin: 0 !important;
@@ -122,6 +139,12 @@
 
 ::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before {
   background-color: var(--pure-white);
+}
+::ng-deep .ng-tns-c99-0 {
+  font-size: 18px !important;
+}
+::ng-deep .ng-tns-c99-1 {
+  font-size: 18px !important;
 }
 
 input:-webkit-autofill,
