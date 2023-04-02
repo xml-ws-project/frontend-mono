@@ -21,8 +21,17 @@
             class="button"
             (click)="showDialog()"
             [ngClass]="{ 'disabled-button': isSelected === false }"
+            *ngIf="role !== 'ADMIN'"
           >
             Buy ticket
+          </div>
+          <div
+            class="button"
+            [ngClass]="{ 'disabled-button': isSelected === false }"
+            *ngIf="role === 'ADMIN'"
+            (click)="onInfo()"
+          >
+            Info
           </div>
           <p-dialog
             header="Purchase confirmation"
