@@ -53,7 +53,6 @@ export class CreateFlightFormComponent implements OnInit {
       takeOffDateTime: this.takeOffDate,
       landingDateTime: this.landingDate,
     })
-    console.log(this.form.value)
 
     this.flightService.addFlight(this.form.value).subscribe(
       (response: string) => {

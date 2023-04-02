@@ -19,13 +19,13 @@
       <span class="spacer"></span>
       <div (click)="onBurgerToggle()" class="navbar__main__container__burger--icon"></div>
       <div class="navbar__main__container__links">
-        <div class="navbar__main__container__links__item" *ngIf="role === 'ADMIN'">
+        <div class="navbar__main__container__links__item shrink" *ngIf="role === 'ADMIN'">
           <img src="../../assets/icons/navbar/admin/new-flight.png" />
           <div class="navbar__main__container__links__item__text" (click)="onNewFlight()">
             New Flight
           </div>
         </div>
-        <div class="navbar__main__container__links__item">
+        <div class="navbar__main__container__links__item shrink">
           <img src="../../assets/icons/navbar/about.png" />
           <div class="navbar__main__container__links__item__text">About Us</div>
         </div>
@@ -62,7 +62,7 @@
               <mat-icon>account_circle</mat-icon>
               <span>My Profile</span>
             </button>
-            <button mat-menu-item (click)="onTickets()">
+            <button mat-menu-item (click)="onTickets()" *ngIf="role !== 'ADMIN'">
               <img src="../../assets/icons/navbar/ticket.png" class="menu-img" />
               <span>My Tickets</span>
             </button>
