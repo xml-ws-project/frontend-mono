@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
-import { NgForm } from '@angular/forms'
+import { NgForm, Validators } from '@angular/forms'
 import { AuthService } from '../../services/auth.service'
-import { ToastrService } from 'ngx-toastr'
+import { CustomToastrService } from 'src/app/shared/services/custom-toastr.service'
+import { ToasterPosition } from 'src/app/shared/enums/ToasterPosition'
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms'
 
 @Component({
   selector: 'app-register-form',
@@ -11,34 +13,39 @@ import { ToastrService } from 'ngx-toastr'
 })
 export class RegisterFormComponent implements OnInit {
   public isRegistering: boolean = false
-  public isMale: string
   public showError: boolean
   public errorMessage: string
+  public form: FormGroup
 
   constructor(
     private router: Router,
     private authService: AuthService,
-    private toastr: ToastrService,
+    private toastr: CustomToastrService,
+    private formBuilder: FormBuilder,
   ) {}
 
-  ngOnInit(): void {}
-
-  onSubmit(form: NgForm) {
-    if (form.value.gender == undefined) {
-      this.showError = true
-      this.errorMessage = 'Please select your gender.'
-      this.toastr.error('Please select your gender.')
-      return
-    }
+  ngOnInit() {
+    this.form = new FormGroup({
+      firstName: new FormControl(undefined, Validators.required),
+      lastName: new FormControl('', Validators.required),
+      jmbg: new FormControl(undefined, Validators.required),
+      isMale: new FormControl(undefined, Validators.required),
+      phoneNumber: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', Validators.required),
+      dateOfBirth: new FormControl('', Validators.required),
+    })
+  }
+  onFormSubmit() {
     this.isRegistering = true
-    this.authService.register(form.value).subscribe(
+    this.authService.register(this.form.value).subscribe(
       (response: string) => {
-        this.toastr.success(response)
+        this.toastr.success(null, response, ToasterPosition.topCenter)
         this.router.navigate([''])
         this.isRegistering = false
       },
       (errorMessage) => {
-        this.toastr.error(errorMessage)
+        this.toastr.error(null, errorMessage, ToasterPosition.topCenter)
         this.isRegistering = false
         this.showError = true
         this.errorMessage = errorMessage

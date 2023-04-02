@@ -1,3 +1,4 @@
+import { browserRefresh } from './../../app.component'
 import { SearchFlightDTO } from './../interface/SearchFlightDTO'
 import { Flight } from './../interface/Flight'
 import { Observable, BehaviorSubject } from 'rxjs'
@@ -28,6 +29,12 @@ export class FlightService {
     this.flightSource.next(data)
   }
 
+  deleteData(): void {
+    if (!browserRefresh) {
+      localStorage.removeItem('searchResult')
+    }
+  }
+
   public addFlight(flight: NewFlightDTO): Observable<string> {
     return this.http.post(`${this.apiFlightURL}/`, flight, { responseType: 'text' })
   }
@@ -35,6 +42,7 @@ export class FlightService {
   public getFlight(flightId: string): Observable<Flight> {
     return this.http.get<Flight>(`${this.apiFlightURL}/${flightId}`)
   }
+
   public getAdminFlight(flightId: string): Observable<AdminFlightDTO> {
     return this.http.get<AdminFlightDTO>(`${this.apiFlightURL}/${flightId}`)
   }

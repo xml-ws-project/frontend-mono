@@ -5,6 +5,9 @@ import { LandingPageComponent } from '../landing-page/components/landing-page/la
 import { NotfoundPageComponent } from '../shared/errors/components/notfound-page/notfound-page.component'
 import { CreateFlightPageComponent } from '../flights/components/create-flight-page/create-flight-page.component'
 import { ShowFlightPageComponent } from '../flights/components/show-flight-page/show-flight-page.component'
+import { TicketCardComponent } from '../ticket/components/ticket-card/ticket-card/ticket-card.component'
+import { TicketOverviewComponent } from '../ticket/components/tickets-overview/ticket-overview/ticket-overview.component'
+import { LoginGuard } from '../auth/guard/login.guard'
 
 const routes: Routes = [
   {
@@ -29,6 +32,20 @@ const routes: Routes = [
     path: 'show-flight/:id',
     component: ShowFlightPageComponent,
     title: 'VIMA Airlines | Flight',
+  },
+  {
+    path: 'ticket',
+    component: TicketCardComponent,
+    canActivate: [LoginGuard],
+  },
+  {
+    path: 'user/tickets',
+    component: TicketOverviewComponent,
+    canActivate: [LoginGuard],
+  },
+  {
+    path: 'search-result',
+    component: MainSearchResComponent,
   },
 ]
 

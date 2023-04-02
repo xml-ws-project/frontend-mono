@@ -12,6 +12,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
+import { ToastrModule } from 'ngx-toastr'
+import { ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -30,6 +32,10 @@ import { MatInputModule } from '@angular/material/input'
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-center',
+    }),
   ],
 })
 export class AuthModule {}

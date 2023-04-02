@@ -1,0 +1,12 @@
+.page {
+  height: 100%;
+
+  &__tickets {
+    padding-bottom: 25px;
+    padding-top: 25px;
+
+    &__ticket {
+      margin-bottom: 20px;
+    }
+  }
+}

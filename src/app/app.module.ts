@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { MainAppModule } from './main-app/main-app.module'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms'
 import { AuthModule } from './auth/auth.module'
@@ -14,6 +13,8 @@ import { JwtInterceptor } from './interceptor/jwt.interceptor'
 import { LoaderModule } from './shared/loader/loader.module'
 import { CommonModule } from '@angular/common'
 import { ErrorsModule } from './shared/errors/errors.module'
+import { CustomToastrService } from './shared/services/custom-toastr.service'
+import { MatMenuModule } from '@angular/material/menu'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
 
@@ -23,7 +24,6 @@ import { MatNativeDateModule } from '@angular/material/core'
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    MainAppModule,
     NoopAnimationsModule,
     CommonModule,
     FormsModule,
@@ -34,11 +34,16 @@ import { MatNativeDateModule } from '@angular/material/core'
     MatNativeDateModule,
     LandingPageModule,
     FlightsModule,
+    MatMenuModule,
     ToastrModule.forRoot({
-      positionClass: 'toast-top-center',
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
     }),
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    CustomToastrService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

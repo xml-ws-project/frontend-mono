@@ -1,8 +1,11 @@
 @import url('../../../../colors.scss');
 
 .page {
-  height: 100%;
+  height: 130%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
 
   &__hero {
     height: 40%;
@@ -12,23 +15,25 @@
     background-size: cover;
     background-attachment: fixed;
     background-position: center -300px;
-    border-top: 1px solid var(--pure-black);
+    border-top: 1px solid var(--fav-light);
     border-bottom: 1px solid var(--pure-black);
   }
 
   &__content {
-    height: 100%;
+    height: 65%;
     width: 100%;
-    background-color: var(--fav-dark);
+    background-color: var(--pure-white);
+    display: flex;
 
     &__result {
+      border: 1px solid var(--fav-light);
       position: relative;
-      bottom: 20vmin;
-      width: 70%;
-      height: 66%;
+      bottom: 35vmin;
+      width: 80%;
+      height: 110%;
       margin: auto;
       background-color: var(--fav-light);
-      padding: 2rem 6rem 1rem 6rem;
+      padding: 1rem 2rem 1rem 2rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -38,9 +43,9 @@
 
       .res-header {
         width: 100%;
-        height: 8%;
+        height: 6%;
         font-size: xx-large;
-        color: var(--back);
+        color: var(--pure-white);
         padding-bottom: 2rem;
         font-weight: 700;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -52,11 +57,10 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        padding: 1rem 2rem 0rem 2rem;
         overflow-y: scroll;
 
         &::-webkit-scrollbar {
-          width: 1.2rem;
+          width: 1rem;
         }
 
         &::-webkit-scrollbar-track {
@@ -70,32 +74,69 @@
         }
       }
 
+      .dialog {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        padding: 0rem 2rem;
+
+        &-buttons {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          align-items: center;
+          height: 30%;
+          width: 100%;
+          gap: 5rem;
+        }
+
+        &-content {
+          display: flex;
+          justify-content: flex-start;
+          height: 60%;
+          align-items: center;
+          font-size: 1.8rem;
+          width: 100%;
+          font-weight: 500;
+          color: var(--fav-light);
+          gap: 3rem;
+          border-bottom: 0.3rem solid var(--fav-light);
+          padding-top: 1rem;
+        }
+      }
+
       .button-group {
         width: 100%;
-        height: 12%;
+        height: 10%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
         align-items: flex-end;
-        margin-bottom: 1.5rem;
+        padding-right: 2rem;
 
         .class {
           border-bottom: 2px solid var(--back);
-          font-size: 2.6rem;
+          font-size: 2rem;
           font-weight: 500;
-          width: 65%;
+          width: 55%;
           color: var(--back);
           font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          cursor: default;
         }
 
         .group {
-          width: 30%;
+          width: 40%;
           display: flex;
           justify-content: space-evenly;
 
           .button {
             width: 15rem;
-            height: 5rem;
+            height: 4rem;
             color: var(--fav-light);
             transition: 0.2s;
             border-radius: 0.5rem;
@@ -103,10 +144,11 @@
             border: 0px solid var(--back);
             background-color: var(--back);
             padding: 0.7rem 0.7rem;
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-right: 1rem;
 
             &:hover {
               transform: scale(1.05);

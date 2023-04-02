@@ -2,21 +2,21 @@
 
 .custom-button {
   color: var(--pure-white);
-  transition: .2s;
-  border-radius: .5rem;
-  font-size: 1.8rem;
+  transition: 0.2s;
+  border-radius: 5px;
+  font-size: 20px;
   font-weight: 600;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border: 2px solid var(--pure-white);
-  background-color: #E34234;
-  margin-right: 1rem;
-  padding: .7rem .7rem;
-  width: 18rem;
-  height: 6rem;
+  background-color: #e34234;
+  margin-right: 3px;
+  padding: 5px 5px;
+  width: 200px;
+  height: 60px;
 
   &:hover {
     transform: scale(1.05);
-    transition: .2s;
+    transition: 0.2s;
     cursor: pointer;
   }
 }
@@ -28,6 +28,8 @@
   box-sizing: border-box;
   width: 100%;
   height: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
   background-color: var(--fav-light);
   opacity: 0.99;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
@@ -35,12 +37,13 @@
   &-header {
     height: 15%;
     width: 100%;
-    font-size: xx-large;
-    padding-left: 3rem;
-    padding-top: 1rem;
+    font-size: 35px;
+    padding-left: 25px;
+    padding-top: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 700;
     color: var(--pure-white);
+    border-bottom: 2px solid var(--pure-white);
   }
 
   &-content {
@@ -58,25 +61,27 @@
       justify-content: center;
       box-sizing: border-box;
       flex-direction: column;
-      font-size: 2rem;
+      font-size: 20px;
 
       &-label {
         width: 100%;
-        height: 3rem;
+        height: 25px;
+        font-size: 22px;
         color: var(--pure-white);
+        margin-bottom: 5px;
       }
 
       &-input {
         width: 100%;
-        height: 5rem;
-        font-size: large;
+        height: 60px;
+        font-size: 20px;
 
         &-text {
           height: 100%;
           border: 0px solid transparent;
-          border-radius: 0.6rem;
-          font-size: 1.6rem;
-          padding-left: 1rem;
+          border-radius: 5px;
+          font-size: 20px;
+          padding-left: 10px;
           box-sizing: border-box;
 
           &:focus::placeholder {
@@ -85,7 +90,7 @@
 
           &:focus {
             border: 0px solid transparent;
-            border-radius: 0.6rem;
+            border-radius: 5px;
             caret-color: var(--fav-light);
             outline: none !important;
           }
@@ -94,28 +99,29 @@
 
       &-button-div {
         width: 100%;
-        height: 8rem;
+        height: 80px;
         display: flex;
         justify-content: flex-end;
         flex-direction: column;
 
         &-button {
-          width: 15rem;
-          height: 5rem;
+          width: 180px;
+          height: 55px;
           color: var(--fav-light);
-          transition: .2s;
-          border-radius: .5rem;
+          transition: 0.2s;
+          border-radius: 5px;
           font-weight: 600;
           box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
           border: 1px solid var(--fav-light);
           background-color: var(--pure-white);
-          margin-right: 1rem;
-          padding: .7rem .7rem;
-          font-size: 1.6rem;
+          margin-right: 10px;
+          margin-top: 20px;
+          padding: 5px 5px;
+          font-size: 20px;
 
           &:hover {
             transform: scale(1.05);
-            transition: .2s;
+            transition: 0.2s;
             cursor: pointer;
           }
         }
@@ -130,8 +136,8 @@
 }
 
 :host ::ng-deep .p-button-label {
-  font-size: 1.4rem;
-  width: 8rem;
+  font-size: 20px;
+  width: 300px;
   background-color: whitesmoke;
 }
 
@@ -141,26 +147,26 @@
 
 :host ::ng-deep .p-overlaypanel-content {
   display: flex;
-  padding: 0.5rem;
+  padding: 4px;
   flex-direction: column;
 }
 
 .panel-content {
   display: flex;
-  padding: 1rem;
+  padding: 7px;
   flex-direction: column;
   box-sizing: border-box;
-  margin-top: 1.5rem;
   justify-content: space-evenly;
   width: 100%;
-  height: 15rem;
+  height: 160px;
 
   &-radio-group {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     box-sizing: border-box;
     height: 50%;
+    align-items: center;
   }
 
   &-input {
@@ -168,16 +174,17 @@
     flex-direction: row;
     justify-content: space-between;
     height: 50%;
-    margin-top: 1rem;
+    margin-top: 10px;
+    align-items: center;
 
     &-label {
-      font-size: 1.8rem;
+      font-size: 20px;
       color: var(--fav-light);
       display: flex;
       justify-content: flex-end;
       font-weight: 500;
+      margin-left: 10px;
     }
-
   }
 }
 
@@ -187,6 +194,11 @@
   justify-content: space-around;
   font-size: medium;
   align-items: center;
-  width: 15rem;
-  height: 6rem;
+  width: 100px;
+  height: 25px;
+}
+
+.counter {
+  width: 120px;
+  height: 40px;
 }

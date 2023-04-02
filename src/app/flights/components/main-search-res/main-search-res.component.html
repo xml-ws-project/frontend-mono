@@ -2,7 +2,13 @@
   <div class="page__hero"></div>
   <div class="page__content">
     <div class="page__content__result">
+      <<<<<<< HEAD
       <div class="res-header">Choose the desired flight and join our journey.</div>
+      =======
+      <div class="res-header">
+        Fly High with Our Ticket Booking System: Easy, Convenient, and Affordable!
+      </div>
+      >>>>>>> 9b4eb826b2fbc5156365b5bc8d6fef1fc3e7ac40
       <div class="res-content">
         <app-flight-card-res
           *ngFor="let flight of flights"
@@ -17,8 +23,8 @@
           <div class="button button-back" (click)="back()">Back to search</div>
           <div
             class="button"
+            (click)="showDialog()"
             [ngClass]="{ 'disabled-button': isSelected === false }"
-            *ngIf="role != 'ADMIN'"
           >
             Buy ticket
           </div>
@@ -30,6 +36,29 @@
           >
             Info
           </div>
+          <p-dialog
+            header="Purchase confirmation"
+            [(visible)]="visible"
+            [modal]="true"
+            [style]="{ width: '80rem', height: '20rem' }"
+            [draggable]="false"
+            [resizable]="true"
+          >
+            <div class="dialog">
+              <div class="dialog-content">
+                <label>Additional luggage: </label>
+                <p-selectButton
+                  [options]="stateOptions"
+                  [(ngModel)]="additionalLuggage"
+                  optionLabel="label"
+                  optionValue="value"
+                ></p-selectButton>
+              </div>
+              <div class="dialog-buttons" (click)="buy()">
+                <div class="button">Confirm</div>
+              </div>
+            </div>
+          </p-dialog>
         </div>
       </div>
     </div>

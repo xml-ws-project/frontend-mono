@@ -1,9 +1,10 @@
 @import url('../../../../colors.scss');
 
-
 .page {
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 
   &__hero {
     height: 40%;
@@ -13,20 +14,28 @@
     background-size: cover;
     background-attachment: fixed;
     background-position: center -300px;
-    border-top: 1px solid var(--pure-black);
+    border-top: 1px solid var(--fav-light);
     border-bottom: 1px solid var(--pure-black);
   }
 
   &__content {
     height: 100%;
     width: 100%;
+<<<<<<< HEAD
     background-color: var(--fav-dark);
+=======
+    background-color: var(--background);
+>>>>>>> 9b4eb826b2fbc5156365b5bc8d6fef1fc3e7ac40
 
     &__search {
       position: relative;
-      bottom: 20vmin;
+      bottom: 15vmin;
       width: 70%;
+<<<<<<< HEAD
       height: 35%;
+=======
+      height: 75%;
+>>>>>>> 9b4eb826b2fbc5156365b5bc8d6fef1fc3e7ac40
       margin: auto;
       background-color: transparent;
     }
