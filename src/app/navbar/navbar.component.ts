@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   private userSub: Subscription | undefined
   public isLogged: boolean = false
   public email: string = ''
+  public role: string = ''
   public burger: boolean = true
   public currentDate: Date = new Date()
   public subscription: Subscription
@@ -28,7 +29,9 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe((user) => {
-      this.email = user == null ? 'NO-EMAIL' : user.email
+      if (user == null) return
+      this.email = user.email
+      this.role = user.role
     })
     this.subscription = timer(0, 1000)
       .pipe(
@@ -65,6 +68,10 @@ export class NavbarComponent implements OnInit {
 
   onBurgerToggle() {
     this.burger = !this.burger
+  }
+
+  onNewFlight() {
+    this.router.navigate(['/create-flight'])
   }
 
   onTickets() {

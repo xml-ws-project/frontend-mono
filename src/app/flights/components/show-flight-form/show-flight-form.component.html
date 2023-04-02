@@ -1,0 +1,55 @@
+<div class="flight">
+  <div class="flight__title">Flight Info</div>
+  <div class="flight__content">
+    <div class="flight__content__row">
+      <div class="flight__content__row__item">
+        <label>Departure place</label>
+        <div class="flight__content__row__item__data">{{ flight.flightDTO.departurePlace }}</div>
+      </div>
+      <div class="flight__content__row__item">
+        <label>Landing place</label>
+        <div class="flight__content__row__item__data">{{ flight.flightDTO.landingPlace }}</div>
+      </div>
+    </div>
+    <div class="flight__content__row">
+      <div class="flight__content__row__item">
+        <label>Take off time</label>
+        <div class="flight__content__row__item__data" datetime="MM/DD/YYYY HH">
+          {{ flight.flightDTO.takeOffDateTime | date : 'dd.MM.YYYY.   HH:mm' }}
+        </div>
+      </div>
+      <div class="flight__content__row__item">
+        <label>Landing tmie</label>
+        <div class="flight__content__row__item__data">
+          {{ flight.flightDTO.landingDateTime | date : 'dd.MM.YYYY.   HH:mm' }}
+        </div>
+      </div>
+    </div>
+    <div class="flight__content__row">
+      <div class="flight__content__row__item">
+        <label>Economy remaining seats</label>
+        <div class="flight__content__row__item__data">{{ flight.remainingEconomy }}</div>
+      </div>
+      <div class="flight__content__row__item">
+        <label>Economy ticket price</label>
+        <div class="flight__content__row__item__data">{{ economyPrice }}€</div>
+      </div>
+    </div>
+    <div class="flight__content__row">
+      <div class="flight__content__row__item">
+        <label>Business remaining seats</label>
+        <div class="flight__content__row__item__data">{{ flight.remainingBussines }}</div>
+      </div>
+      <div class="flight__content__row__item">
+        <label>Business ticket price</label>
+        <div class="flight__content__row__item__data">{{ businessPrice }}€</div>
+      </div>
+    </div>
+    <div class="flight__content__row"></div>
+    <div class="flight__content__row__item">
+      <div class="flight__content__row__item__submit">
+        <button type="button" (click)="Delete()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

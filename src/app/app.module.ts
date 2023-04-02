@@ -16,6 +16,8 @@ import { ErrorsModule } from './shared/errors/errors.module'
 import { CustomToastrService } from './shared/services/custom-toastr.service'
 import { MatMenuModule } from '@angular/material/menu'
 import { LoaderService } from './shared/loader/services/loader.service'
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatNativeDateModule } from '@angular/material/core'
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +31,10 @@ import { LoaderService } from './shared/loader/services/loader.service'
     AuthModule,
     LoaderModule,
     ErrorsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    LandingPageModule,
+    FlightsModule,
     MatMenuModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',

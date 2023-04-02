@@ -2,13 +2,13 @@
 
 .custom-button {
   color: var(--pure-white);
-  transition: .2s;
+  transition: 0.2s;
   border-radius: 5px;
   font-size: 20px;
   font-weight: 600;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border: 2px solid var(--pure-white);
-  background-color: #E34234;
+  background-color: #e34234;
   margin-right: 3px;
   padding: 5px 5px;
   width: 200px;
@@ -16,7 +16,7 @@
 
   &:hover {
     transform: scale(1.05);
-    transition: .2s;
+    transition: 0.2s;
     cursor: pointer;
   }
 }
@@ -108,7 +108,7 @@
           width: 180px;
           height: 55px;
           color: var(--fav-light);
-          transition: .2s;
+          transition: 0.2s;
           border-radius: 5px;
           font-weight: 600;
           box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -121,7 +121,7 @@
 
           &:hover {
             transform: scale(1.05);
-            transition: .2s;
+            transition: 0.2s;
             cursor: pointer;
           }
         }
@@ -185,7 +185,6 @@
       font-weight: 500;
       margin-left: 10px;
     }
-
   }
 }
 
