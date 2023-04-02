@@ -21,24 +21,15 @@
   &__content {
     height: 100%;
     width: 100%;
-<<<<<<< HEAD
-    background-color: var(--fav-dark);
-=======
     background-color: var(--background);
->>>>>>> 9b4eb826b2fbc5156365b5bc8d6fef1fc3e7ac40
 
     &__search {
       position: relative;
       bottom: 15vmin;
       width: 70%;
-<<<<<<< HEAD
-      height: 35%;
-=======
       height: 75%;
->>>>>>> 9b4eb826b2fbc5156365b5bc8d6fef1fc3e7ac40
       margin: auto;
       background-color: transparent;
     }
   }
-
 }
