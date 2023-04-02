@@ -12,7 +12,6 @@ import { ToastrService } from 'ngx-toastr'
 })
 export class CreateFlightFormComponent implements OnInit {
   public form: FormGroup
-  public isCreating: boolean = false
   public layouts: any
   public minTakeOffDate = new Date()
   public minLandingDate = new Date()
@@ -56,15 +55,12 @@ export class CreateFlightFormComponent implements OnInit {
     })
     console.log(this.form.value)
 
-    this.isCreating = true
     this.flightService.addFlight(this.form.value).subscribe(
       (response: string) => {
-        this.isCreating = false
         this.toastr.success('Flight successfully created.')
         this.router.navigate([''])
       },
       (error: HttpErrorResponse) => {
-        this.isCreating = false
         this.toastr.error('Something went wrong, please try again.')
       },
     )

@@ -13,6 +13,7 @@ import { ShowFlightFormComponent } from './components/show-flight-form/show-flig
 import { ShowFlightPageComponent } from './components/show-flight-page/show-flight-page.component'
 import { CalendarModule } from 'primeng/calendar'
 import { MatInputModule } from '@angular/material/input'
+import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MatInputModule } from '@angular/material/input'
     ReactiveFormsModule,
     CalendarModule,
     MatInputModule,
+    MatSelectModule,
   ],
 })
 export class FlightsModule {}

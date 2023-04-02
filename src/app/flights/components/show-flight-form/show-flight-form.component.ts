@@ -6,6 +6,7 @@ import { AdminFlightDTO } from '../../interface/AdminFlightDTO'
 import { Flight } from '../../interface/Flight'
 import { FlightService } from '../../service/flight.service'
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http'
+
 @Component({
   selector: 'app-show-flight-form',
   templateUrl: './show-flight-form.component.html',
@@ -41,6 +42,7 @@ export class ShowFlightFormComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id')
     this.flightService.getAdminFlight(this.id).subscribe((respone) => {
       this.flight = respone
+      console.log(this.flight)
       this.pricelist = this.flight.flightDTO.pricelist
       this.economyPrice = this.flight.flightDTO.pricelist[PassengerClass.ECONOMY]
       this.businessPrice = this.flight.flightDTO.pricelist[PassengerClass.BUSINESS]

@@ -25,6 +25,7 @@ export class MainSearchResComponent implements OnInit, OnDestroy {
   userId: string
   visible: boolean = false
   additionalLuggage: boolean = false
+  role: string = ''
   stateOptions: any[] = [
     { label: 'Yes', value: true },
     { label: 'No', value: false },
@@ -51,6 +52,9 @@ export class MainSearchResComponent implements OnInit, OnDestroy {
       this.flights = x.flights
       this.passengerClass = x.passengerClass
       this.numberOfTickets = x.numberOfTickets
+    })
+    this.authService.user.subscribe((user) => {
+      this.role = user.role
     })
     this.isSelected = false
     this.selectedFlight = null
