@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="flight__content__row__item">
-        <label>Landing tmie</label>
+        <label>Landing time</label>
         <div class="flight__content__row__item__data">
           {{ flight.flightDTO.landingDateTime | date : 'dd.MM.YYYY.   HH:mm' }}
         </div>
@@ -46,10 +46,8 @@
       </div>
     </div>
     <div class="flight__content__row"></div>
-    <div class="flight__content__row__item">
-      <div class="flight__content__row__item__submit">
-        <button type="button" (click)="Delete()">Delete</button>
-      </div>
+    <div class="submit">
+      <button type="button" (click)="Delete()">Delete</button>
     </div>
   </div>
 </div>

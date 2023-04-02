@@ -1,6 +1,6 @@
 <div class="navbar">
   <div class="navbar__help">
-    <div class="navbar__help__time">{{ currentDate | date : 'dd.MM.yyyy - hh:mm:ss a' }}</div>
+    <div class="navbar__help__time">{{ currentDate | date : 'dd.MM.yyyy | HH:mm:ss' }}</div>
     <span class="spacer"></span>
     <div class="navbar__help__item">Feedback</div>
     <div class="navbar__help__item">Contact</div>
@@ -19,17 +19,21 @@
       <span class="spacer"></span>
       <div (click)="onBurgerToggle()" class="navbar__main__container__burger--icon"></div>
       <div class="navbar__main__container__links">
-        <div class="navbar__main__container__links__item" *ngIf="role === 'ADMIN'">
+        <div class="navbar__main__container__links__item shrink" *ngIf="role === 'ADMIN'">
           <img src="../../assets/icons/navbar/admin/new-flight.png" />
           <div class="navbar__main__container__links__item__text" (click)="onNewFlight()">
             New Flight
           </div>
         </div>
-        <div class="navbar__main__container__links__item">
+        <div class="navbar__main__container__links__item shrink">
           <img src="../../assets/icons/navbar/about.png" />
           <div class="navbar__main__container__links__item__text">About Us</div>
         </div>
-        <div class="navbar__main__container__links__item" (click)="onRegister()" *ngIf="!isLogged">
+        <div
+          class="navbar__main__container__links__item shrink"
+          (click)="onRegister()"
+          *ngIf="!isLogged"
+        >
           <img src="../../assets/icons/navbar/register.png" />
           <div class="navbar__main__container__links__item__text">Register</div>
         </div>
@@ -58,7 +62,7 @@
               <mat-icon>account_circle</mat-icon>
               <span>My Profile</span>
             </button>
-            <button mat-menu-item (click)="onTickets()">
+            <button mat-menu-item (click)="onTickets()" *ngIf="role !== 'ADMIN'">
               <img src="../../assets/icons/navbar/ticket.png" class="menu-img" />
               <span>My Tickets</span>
             </button>
@@ -73,6 +77,11 @@
   </div>
   <div [ngClass]="burger ? 'burger-menu' : 'burger-menu-toggle'">
     <div class="burger-menu-toggle__links">
+      <div class="burger-menu-toggle__links__item" (click)="onHome()">00 Home</div>
+      <div class="burger-menu-toggle__links__item" *ngIf="isLogged">01 Profile</div>
+      <div class="burger-menu-toggle__links__item" *ngIf="isLogged" (click)="onTickets()">
+        02 Tickets
+      </div>
       <div class="burger-menu-toggle__links__item" (click)="onRegister()">00 Home</div>
       <div class="burger-menu-toggle__links__item" *ngIf="role === 'ADMIN'" (click)="onNewFlight()">
         01 New Flight

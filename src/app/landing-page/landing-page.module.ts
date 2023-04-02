@@ -11,9 +11,10 @@ import { MatCardModule } from '@angular/material/card'
 import { DividerModule } from 'primeng/divider'
 import { RadioButtonModule } from 'primeng/radiobutton'
 import { OverlayPanelModule } from 'primeng/overlaypanel'
+import { InfoCardComponent } from './components/info-card/info-card.component'
 
 @NgModule({
-  declarations: [LandingPageComponent, SearchComponent],
+  declarations: [LandingPageComponent, SearchComponent, InfoCardComponent],
   imports: [
     CommonModule,
     CardModule,

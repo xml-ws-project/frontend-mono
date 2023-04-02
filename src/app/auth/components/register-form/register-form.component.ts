@@ -12,7 +12,6 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms'
   styleUrls: ['./register-form.component.scss'],
 })
 export class RegisterFormComponent implements OnInit {
-  public isRegistering: boolean = false
   public showError: boolean
   public errorMessage: string
   public form: FormGroup
@@ -21,7 +20,6 @@ export class RegisterFormComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private toastr: CustomToastrService,
-    private formBuilder: FormBuilder,
   ) {}
 
   ngOnInit() {
@@ -37,16 +35,13 @@ export class RegisterFormComponent implements OnInit {
     })
   }
   onFormSubmit() {
-    this.isRegistering = true
     this.authService.register(this.form.value).subscribe(
       (response: string) => {
         this.toastr.success(null, response, ToasterPosition.topCenter)
         this.router.navigate([''])
-        this.isRegistering = false
       },
       (errorMessage) => {
         this.toastr.error(null, errorMessage, ToasterPosition.topCenter)
-        this.isRegistering = false
         this.showError = true
         this.errorMessage = errorMessage
       },

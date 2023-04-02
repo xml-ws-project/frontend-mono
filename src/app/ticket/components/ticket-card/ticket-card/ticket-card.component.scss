@@ -1,16 +1,18 @@
 @import url('../../../../../colors.scss');
+
 .divBorder {
   width: 100%;
-  height: 100%;
+  height: 35%;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+  margin-top: 25px;
 }
 
 .cardBorder {
-  width: 40%;
+  width: 60%;
   height: 225px;
   display: grid;
   grid-template-rows: 15% 15% 20% 20% 15% 15%;
@@ -85,6 +87,7 @@
   text-align: center;
   color: white;
 }
+
 .black {
   color: black;
 }
@@ -92,6 +95,7 @@
 .lightBlueBackground {
   background-color: #5072a7;
 }
+
 .lightBlueBorder {
   border-bottom: 3px solid #5072a7;
 }
@@ -99,6 +103,7 @@
 .darkBlueBackground {
   background-color: #13274f;
 }
+
 .darkBlueBorder {
   border-bottom: 3px solid #13274f;
 }
@@ -106,9 +111,11 @@
 .lightBlueText {
   color: #5072a7;
 }
+
 .darkBlueColor {
   color: #13274f;
 }
+
 .luggage {
   width: 10%;
   height: 50%;

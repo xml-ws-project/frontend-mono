@@ -14,6 +14,11 @@ body {
   font-size: 1.6rem;
 }
 
+// footer {
+//   position: absolute;
+//   bottom: 0;
+// }
+
 .p-component {
   font-size: 20px;
 }
@@ -36,6 +41,7 @@ body {
   height: 100%;
   width: 100%;
 
+
   &__hero {
     height: 40%;
     width: 100%;
@@ -51,7 +57,7 @@ body {
   &__content {
     height: 100%;
     width: 100%;
-    background-color: var(--fav-dark);
+    background-color: var(--background);
 
     &__search {
       position: relative;

@@ -11,7 +11,6 @@ import { AuthService } from '../../services/auth.service'
 })
 export class LoginFormComponent {
   public defaultRemember = true
-  public isLogging: boolean = false
   public showError: boolean = false
   public errorMessage: string = ''
 
@@ -26,15 +25,12 @@ export class LoginFormComponent {
   }
 
   onSubmit(form: NgForm) {
-    this.isLogging = true
     this.authService.login(form.value).subscribe(
       (response: string) => {
         this.toastr.success('You have been successfully logged in.', 'Welcome back!')
         this.router.navigate([''])
-        this.isLogging = false
       },
       (errorMessage) => {
-        this.isLogging = false
         this.showError = true
         this.errorMessage = errorMessage
       },

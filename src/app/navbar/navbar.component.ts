@@ -60,6 +60,7 @@ export class NavbarComponent implements OnInit {
   onLogout() {
     this.authService.logout()
     this.isLogged = !this.isLogged
+    window.location.reload()
   }
 
   onRegister() {

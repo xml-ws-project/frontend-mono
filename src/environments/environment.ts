@@ -10,7 +10,7 @@ export const environment = {
   loginURL: 'http://localhost:5000/Auth/login',
   registerURL: 'http://localhost:5000/Auth/register',
   flightsURL: 'http://localhost:5000/Flight',
-  flightLayoutURL: 'https://localhost:5000/FlightLayout',
+  flightLayoutURL: 'http://localhost:5000/FlightLayout',
 }
 
 /*

@@ -38,6 +38,7 @@
   color: #ffffff;
   margin: 20px 0 12px;
   padding: 0;
+  cursor: default;
 }
 
 .footer-distributed .footer-links a {
@@ -72,6 +73,7 @@
   line-height: 42px;
   margin: 10px 15px;
   vertical-align: middle;
+  cursor: default;
 }
 
 .footer-distributed .footer-center i.fa-envelope {
@@ -85,6 +87,7 @@
   font-weight: 400;
   vertical-align: middle;
   margin: 0;
+  cursor: default;
 }
 
 .footer-distributed .footer-center p span {
@@ -125,6 +128,7 @@
   font-size: 13px;
   font-weight: normal;
   margin: 0;
+  cursor: default;
 }
 
 .footer-distributed .footer-company-about span {
@@ -148,14 +152,13 @@
     margin-right: 10px;
 
     img {
+      cursor: pointer;
       height: inherit;
       width: inherit;
       background-position: center;
       background-size: contain;
     }
   }
-
-
 }
 
 .footer-distributed .footer-icons a {

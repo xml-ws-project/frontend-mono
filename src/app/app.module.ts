@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common'
 import { ErrorsModule } from './shared/errors/errors.module'
 import { CustomToastrService } from './shared/services/custom-toastr.service'
 import { MatMenuModule } from '@angular/material/menu'
+import { LoaderService } from './shared/loader/services/loader.service'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
 
@@ -43,6 +44,7 @@ import { MatNativeDateModule } from '@angular/material/core'
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     CustomToastrService,
+    LoaderService,
   ],
   bootstrap: [AppComponent],
 })

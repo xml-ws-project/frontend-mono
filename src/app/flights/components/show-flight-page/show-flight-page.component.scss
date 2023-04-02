@@ -1,11 +1,17 @@
 @import url('../../../../colors.scss');
 
+
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
 .page__content__form {
   position: relative;
   width: 60%;
-  height: 70%;
+  height: 80%;
   left: 20%;
-  bottom: 20vmin;
+  bottom: 15vmin;
   background-color: var(--fav-light);
   border-radius: 10px;
   padding: 25px;

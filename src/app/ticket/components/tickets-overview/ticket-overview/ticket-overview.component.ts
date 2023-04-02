@@ -21,7 +21,7 @@ export class TicketOverviewComponent implements OnInit {
   ) {}
 
   tickets: TicketDTO[]
-  noTickets = false
+  noTickets: boolean
 
   ngOnInit(): void {
     this.isLoading = true
@@ -32,16 +32,11 @@ export class TicketOverviewComponent implements OnInit {
       (response: TicketDTO[]) => {
         this.isLoading = false
         this.tickets = response
+        this.noTickets = this.tickets == null ? true : false
       },
       (error: HttpErrorResponse) => {
         this.toastr.error('Something went wrong, please try reloading the page.')
       },
     )
-  }
-
-  ngDoCheck() {
-    if (this.tickets == null) {
-      this.noTickets = true
-    } else this.noTickets = false
   }
 }
