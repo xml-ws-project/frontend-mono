@@ -9,7 +9,7 @@
       <div class="custom-content-element-input">
         <p-calendar
           [readonlyInput]="true"
-          [style]="{ width: '21rem', height: '5rem' }"
+          [style]="{ width: '100%', height: '60px' }"
           placeholder="Choose date"
           [(ngModel)]="takeOffDate"
         ></p-calendar>
@@ -20,7 +20,7 @@
       <div class="custom-content-element-input">
         <p-calendar
           [readonlyInput]="true"
-          [style]="{ width: '21rem', height: '5rem' }"
+          [style]="{ width: '100%', height: '60px' }"
           placeholder="Choose date"
           [(ngModel)]="landingDate"
         ></p-calendar>
@@ -88,7 +88,8 @@
       <div class="panel-content-input">
         <label class="panel-content-input-label" for="float-input">Number of cards</label>
         <p-inputNumber
-          [style]="{ height: '5rem' }"
+          [style]="{ height: '40px' }"
+          [inputStyle]="{ width: '60px' }"
           [min]="1"
           mode="decimal"
           [(ngModel)]="searchDTO.preferredSeats"
