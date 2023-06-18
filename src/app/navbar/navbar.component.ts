@@ -79,6 +79,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/user/tickets'])
   }
 
+  onApiKey() {
+    this.router.navigate(['/api-key'])
+  }
+
   ngOnDestroy() {
     clearInterval(this.intervalId)
     if (this.subscription) {

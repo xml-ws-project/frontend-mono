@@ -1,0 +1,32 @@
+<div class="page">
+  <div class="api-key">
+    <div class="api-key__header">
+      API Key Registration: Unlocking Your Application's Full Potential
+    </div>
+    <div class="api-key__key-wrapper" *ngFor="let key of keys">
+      <mat-form-field class="api-key__key-wrapper__input">
+        <mat-label>API key:</mat-label>
+        <input matInput [defaultValue]="key.key" />
+      </mat-form-field>
+      <mat-form-field class="api-key__key-wrapper__input">
+        <mat-label>Expire date:</mat-label>
+        <input matInput [defaultValue]="key.expireDate" />
+      </mat-form-field>
+    </div>
+    <form class="api-key__form" [formGroup]="form" (submit)="onFormSubmit()">
+      <mat-form-field>
+        <mat-label>Expire time</mat-label>
+        <input
+          formControlName="expireIn"
+          id="expireIn"
+          type="number"
+          min="0"
+          placeholder="Enter expiration time in minutes (0 for no expiration)"
+          matInput
+          required
+        />
+      </mat-form-field>
+      <button mat-raised-button [disabled]="!form.valid">Generate api-key</button>
+    </form>
+  </div>
+</div>

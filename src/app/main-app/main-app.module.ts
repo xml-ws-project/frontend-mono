@@ -15,6 +15,7 @@ import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontaweso
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { LoaderModule } from '../shared/loader/loader.module'
+import { ApiKeyService } from '../auth/services/api-key.service'
 
 @NgModule({
   declarations: [
@@ -34,5 +35,6 @@ import { LoaderModule } from '../shared/loader/loader.module'
     MatAutocompleteModule,
   ],
   exports: [MatMenuModule],
+  providers: [ApiKeyService],
 })
 export class MainAppModule {}

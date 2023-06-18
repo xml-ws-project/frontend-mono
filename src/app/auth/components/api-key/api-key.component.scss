@@ -1,0 +1,40 @@
+@import '../../../../colors.scss';
+
+.api-key {
+  width: 60%;
+  height: 100%;
+  margin: auto;
+  margin-top: 5rem;
+
+  &__header {
+    font-size: 2rem;
+  }
+
+  &__key-wrapper {
+    width: 100%;
+    margin-top: 4rem;
+    font-size: 1.5rem;
+    border: 1px solid var(--fav-light);
+    border-radius: 1rem;
+    padding: 1.5rem;
+
+    &__input {
+      width: 100% !important;
+    }
+  }
+
+  &__form {
+    margin-top: 4rem;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+
+    button {
+      margin-top: 2rem !important;
+      font-size: 1.5rem !important;
+      height: 2.5rem !important;
+      background-color: var(--fav-light) !important;
+      color: var(--pure-white) !important;
+    }
+  }
+}
