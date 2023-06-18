@@ -8,6 +8,7 @@ import { ShowFlightPageComponent } from '../flights/components/show-flight-page/
 import { TicketCardComponent } from '../ticket/components/ticket-card/ticket-card/ticket-card.component'
 import { TicketOverviewComponent } from '../ticket/components/tickets-overview/ticket-overview/ticket-overview.component'
 import { LoginGuard } from '../auth/guard/login.guard'
+import { ApiKeyComponent } from '../auth/components/api-key/api-key.component'
 
 const routes: Routes = [
   {
@@ -46,6 +47,11 @@ const routes: Routes = [
   {
     path: 'search-result',
     component: MainSearchResComponent,
+  },
+  {
+    path: 'api-key',
+    component: ApiKeyComponent,
+    canActivate: [LoginGuard],
   },
 ]
 

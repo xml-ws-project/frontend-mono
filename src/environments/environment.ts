@@ -4,13 +4,13 @@
 
 export const environment = {
   production: false,
-  baseURL: 'http://localhost:5000',
-  authURL: 'http://localhost:5000/Auth',
-  ticketURL: 'http://localhost:5000/Ticket',
-  loginURL: 'http://localhost:5000/Auth/login',
-  registerURL: 'http://localhost:5000/Auth/register',
-  flightsURL: 'http://localhost:5000/Flight',
-  flightLayoutURL: 'http://localhost:5000/FlightLayout',
+  baseURL: 'http://localhost:5159',
+  authURL: 'http://localhost:5159/Auth',
+  ticketURL: 'http://localhost:5159/Ticket',
+  loginURL: 'http://localhost:5159/Auth/login',
+  registerURL: 'http://localhost:5159/Auth/register',
+  flightsURL: 'http://localhost:5159/Flight',
+  flightLayoutURL: 'http://localhost:5159/FlightLayout',
 }
 
 /*

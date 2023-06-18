@@ -14,6 +14,8 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { ToastrModule } from 'ngx-toastr'
 import { ReactiveFormsModule } from '@angular/forms'
+import { ApiKeyComponent } from './components/api-key/api-key.component'
+import { MatButtonModule } from '@angular/material/button'
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms'
     RegisterFormComponent,
     RegisterPageComponent,
     HomeButtonComponent,
+    ApiKeyComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms'
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatButtonModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-center',
     }),

@@ -66,6 +66,10 @@
               <img src="../../assets/icons/navbar/ticket.png" class="menu-img" />
               <span>My Tickets</span>
             </button>
+            <button mat-menu-item (click)="onApiKey()" *ngIf="role !== 'ADMIN'">
+              <mat-icon>vpn_key</mat-icon>
+              <span>Api Key</span>
+            </button>
             <button mat-menu-item (click)="onLogout()" class="logout">
               <mat-icon>logout</mat-icon>
               <span>Logout</span>
