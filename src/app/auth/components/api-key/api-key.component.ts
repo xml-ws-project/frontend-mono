@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr'
+import { ApiKeyService } from '../../services/api-key.service'
+import { AuthService } from '../../services/auth.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-api-key',
@@ -9,19 +12,52 @@ import { ToastrService } from 'ngx-toastr'
 })
 export class ApiKeyComponent implements OnInit {
   public form: FormGroup
-  public hasKey: boolean = true
-  public key = ''
-  public expireIn = ''
+  public hasKey: boolean = false
+  public userId: string = ''
+  public key
 
-  constructor(private toastr: ToastrService) {}
+  constructor(
+    private toastr: ToastrService,
+    private keyService: ApiKeyService,
+    private authService: AuthService,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
       expireIn: new FormControl(null, Validators.required),
     })
+
+    this.authService.user.subscribe((user) => {
+      this.userId = user.id
+      return
+    })
+
+    this.keyService.getUserKey(this.userId).subscribe((response) => {
+      if (response === null) {
+        this.hasKey = false
+        return
+      }
+
+      this.hasKey = true
+      this.key = response
+    })
   }
 
   onFormSubmit() {
-    console.log(this.form.value)
+    const dto = {
+      userId: this.userId,
+      expireIn: this.form.value.expireIn,
+    }
+
+    this.keyService.createKey(dto).subscribe((response) => {
+      if (response === null) {
+        this.toastr.error('Something went wrong...')
+        return
+      }
+
+      this.toastr.success('API key created!')
+      this.router.navigate([''])
+    })
   }
 }

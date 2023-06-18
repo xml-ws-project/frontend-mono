@@ -11,6 +11,7 @@ export const environment = {
   registerURL: 'http://localhost:5159/Auth/register',
   flightsURL: 'http://localhost:5159/Flight',
   flightLayoutURL: 'http://localhost:5159/FlightLayout',
+  apiKeyURL: 'http://localhost:5159/api-key',
 }
 
 /*

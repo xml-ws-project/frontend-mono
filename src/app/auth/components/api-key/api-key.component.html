@@ -5,19 +5,27 @@
     </div>
     <form class="api-key__form" [formGroup]="form" (submit)="onFormSubmit()" *ngIf="!hasKey">
       <mat-form-field>
-        <mat-label>Set api-key expire time, in minutes</mat-label>
-        <input formControlName="expireIn" id="expireIn" type="number" min="1" matInput required />
+        <mat-label>Expire time</mat-label>
+        <input
+          formControlName="expireIn"
+          id="expireIn"
+          type="number"
+          min="0"
+          placeholder="Enter expiration time in minutes (0 for no expiration)"
+          matInput
+          required
+        />
       </mat-form-field>
       <button mat-raised-button [disabled]="!form.valid">Generate api-key</button>
     </form>
     <div class="api-key__key-wrapper" *ngIf="hasKey">
       <mat-form-field class="api-key__key-wrapper__input">
         <mat-label>API key:</mat-label>
-        <input matInput [defaultValue]="key" />
+        <input matInput [defaultValue]="key.key" />
       </mat-form-field>
       <mat-form-field class="api-key__key-wrapper__input">
         <mat-label>Expire date:</mat-label>
-        <input matInput [defaultValue]="expireIn" />
+        <input matInput [defaultValue]="key.expireDate" />
       </mat-form-field>
     </div>
   </div>
