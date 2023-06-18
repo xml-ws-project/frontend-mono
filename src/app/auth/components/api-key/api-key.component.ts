@@ -14,7 +14,7 @@ export class ApiKeyComponent implements OnInit {
   public form: FormGroup
   public hasKey: boolean = false
   public userId: string = ''
-  public key
+  public keys = []
 
   constructor(
     private toastr: ToastrService,
@@ -33,15 +33,7 @@ export class ApiKeyComponent implements OnInit {
       return
     })
 
-    this.keyService.getUserKey(this.userId).subscribe((response) => {
-      if (response === null) {
-        this.hasKey = false
-        return
-      }
-
-      this.hasKey = true
-      this.key = response
-    })
+    this.getUserKeys()
   }
 
   onFormSubmit() {
@@ -57,7 +49,19 @@ export class ApiKeyComponent implements OnInit {
       }
 
       this.toastr.success('API key created!')
-      this.router.navigate([''])
+      this.getUserKeys()
+    })
+  }
+
+  getUserKeys() {
+    this.keyService.getUserKeys(this.userId).subscribe((response) => {
+      if (response === null) {
+        this.hasKey = false
+        return
+      }
+
+      this.hasKey = true
+      this.keys = response
     })
   }
 }

@@ -10,7 +10,7 @@ export class ApiKeyService {
 
   constructor(private toastr: ToastrService, private http: HttpClient) {}
 
-  public getUserKey(userId): Observable<any> {
+  public getUserKeys(userId): Observable<any> {
     return this.http.get(`${this.apiUrl}/${userId}`)
   }
 
